@@ -1,1 +1,12 @@
-<router-outlet></router-outlet>
+<!-- Splash screen Loader  -->
+<div *ngIf="initialLoading">
+  <div class="lds-ripple"><div></div><div></div></div>
+  <div class="loader-logo">
+    <div class="center"><img class="" src="/assets/images/logo-no-bg.png" width="50" height="50"></div>
+    <div class="loader-text font-bold font-size-normal text-secondary"><div class="center font-bold">Zepayroll</div></div>
+  </div>
+</div>
+
+
+<router-outlet *ngIf="!initialLoading"></router-outlet>
+
