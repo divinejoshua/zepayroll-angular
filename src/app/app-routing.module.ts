@@ -9,7 +9,7 @@ const routes: Routes = [
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', title: 'Home - Zepayroll', component: HomeComponent },
   { path: 'payout', title: 'Payout - Zepayroll', component: PayoutComponent },
-  { path: 'accounts/login', title: 'Payout - Zepayroll', component: LoginComponent },
+  { path: 'accounts/login', title: 'Login - Zepayroll', component: LoginComponent },
   // { path: '**', component: PageNotFoundComponent },
 ];
 

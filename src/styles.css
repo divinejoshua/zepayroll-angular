@@ -12,6 +12,7 @@
   padding: 0;
   font-size: 13px;
   letter-spacing: 0.4px;
+  color:#121212;
 }
 
 /* Center  */
@@ -60,6 +61,32 @@
 }
 
 
+
+/* ======== Transition */
+.transition-in-bottom-top{
+
+  animation: fadeinauth 0.5s;
+  -moz-animation: fadeinauth 0.5s; /* Firefox */
+  -webkit-animation: fadeinauth 0.5s; /* Safari and Chrome */
+  -o-animation: fadeinauth 0.5s; /* Opera */
+}
+  @keyframes fadeinauth{
+      from {
+          opacity:0;
+          margin-top: 20px;
+      }
+      to {
+          opacity:1;
+
+      }
+
+  }
+
+
+
+
+
+
 .loader-logo{
 	position: fixed;
 	top: 50%;
@@ -73,3 +100,13 @@
 	top: 90%;
     width: 100%;
 }
+
+
+.form-box{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
