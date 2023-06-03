@@ -5,8 +5,8 @@ import { PayoutComponent } from './pages/payout/payout.component';
 
 
 const routes: Routes = [
-  { path: 'home', title: 'Home page', component: HomeComponent },
-  { path: 'payout', title: 'Payout', component: PayoutComponent },
+  { path: 'home', title: 'Home - Zepayroll', component: HomeComponent },
+  { path: 'payout', title: 'Payout - Zepayroll', component: PayoutComponent },
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
   // { path: '**', component: PageNotFoundComponent },
 ];
