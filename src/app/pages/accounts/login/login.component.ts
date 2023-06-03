@@ -9,6 +9,7 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 export class LoginComponent {
 
     showPassword: boolean = false;
+    validationActive: boolean = false;
 
     // Form group
     loginForm = new FormGroup({

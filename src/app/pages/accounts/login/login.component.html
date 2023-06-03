@@ -15,10 +15,12 @@
                   focus:ring-0.5
                   focus:border-300
                   transition duration-0 hover:duration-150
-            ">
-            <div *ngIf="loginForm.controls.password.invalid && (loginForm.controls.email.dirty || loginForm.controls.email.touched)">
-              <div *ngIf="loginForm.controls.email.errors?.['required']" class="absolute text-red-500 float-left font-size-small pt-1">Email is required.</div>
-              <!-- <div *ngIf="loginForm.controls.email.errors.invalidPassword">Invalid password.</div> -->
+            "
+            [class]="loginForm.controls.password.errors && validationActive ? 'border-red-500' : ''">
+          <!-- Email validation message  -->
+            <div *ngIf="loginForm.invalid && validationActive">
+              <div *ngIf="loginForm.controls.email.errors?.['required']" class="absolute text-red-500 float-left text-sm pt-1">Email is required.</div>
+              <div *ngIf="loginForm.controls.email.errors?.['email']" class="absolute text-red-500 float-left text-sm pt-1">Invalid email.</div>
             </div>
 
         </div>
@@ -37,11 +39,17 @@
                 focus:ring-0.5
                 focus:border-300
                 transition duration-0 hover:duration-150
-          ">
-
+          "
+          [class]="loginForm.controls.password.errors && validationActive ? 'border-red-500' : ''">
           <div class="absolute inset-y-2 right-0 pr-3 pt-1 mt-1 cursor-pointer flex items-center text-sm leading-5" (click)="showPassword=!showPassword">
             <span *ngIf="showPassword" class="mr-3 text-sm text-gray-400">Hide</span>
             <span *ngIf="!showPassword" class="mr-3 text-sm text-gray-400">Show</span>
+        </div>
+
+        <!-- Password validation message  -->
+      <div *ngIf="loginForm.invalid && validationActive">
+        <div *ngIf="loginForm.controls.password.errors?.['required']" class="absolute text-red-500 float-left text-sm pt-1">Password is required.</div>
+        <div *ngIf="loginForm.controls.password.errors?.['pattern']" class="absolute text-red-500 float-left text-sm pt-1">Password must contain Uppercase, Lowercase and Number.</div>
       </div>
 
 
@@ -49,17 +57,18 @@
 
       </div>
 
-      <p class="mt-5 text-gray-400 cursor-pointer">Forgot password?</p>
+      <p class="mt-7 text-gray-400 cursor-pointer">Forgot password?</p>
 
         <br>
         <!-- [disabled]="loginForm.invalid" -->
         <button type="submit"
-
+        (click)="validationActive=true"
         class="inline-flex items-center font-weight-medium w-full place-content-center mt-4 form-auth-btn text-lg bg-default text-white"
-        >Login</button>
+        >
+        <div class="dot-falling"></div>
+        Login
+      </button>
     </form>
-
-    {{loginForm.invalid}}
 
   </div>
 </main>
