@@ -16,6 +16,11 @@
                   focus:border-300
                   transition duration-0 hover:duration-150
             ">
+            <div *ngIf="loginForm.controls.password.invalid && (loginForm.controls.email.dirty || loginForm.controls.email.touched)">
+              <div *ngIf="loginForm.controls.email.errors?.['required']" class="absolute text-red-500 float-left font-size-small pt-1">Email is required.</div>
+              <!-- <div *ngIf="loginForm.controls.email.errors.invalidPassword">Invalid password.</div> -->
+            </div>
+
         </div>
       <br>
 
@@ -47,7 +52,9 @@
       <p class="mt-5 text-gray-400 cursor-pointer">Forgot password?</p>
 
         <br>
-        <button type="submit" [disabled]="loginForm.invalid"
+        <!-- [disabled]="loginForm.invalid" -->
+        <button type="submit"
+
         class="inline-flex items-center font-weight-medium w-full place-content-center mt-4 form-auth-btn text-lg bg-default text-white"
         >Login</button>
     </form>
