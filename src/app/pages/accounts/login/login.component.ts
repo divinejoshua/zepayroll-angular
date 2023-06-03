@@ -8,10 +8,12 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 })
 export class LoginComponent {
 
+  showPassword: boolean = false;
+
     // Form group
     loginForm = new FormGroup({
-      name:  new FormControl('', Validators.required),
-      email: new FormControl('', [Validators.required, Validators.email] )
+      email: new FormControl('', [Validators.required, Validators.email] ),
+      password:  new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
     });
 
     constructor(){}
