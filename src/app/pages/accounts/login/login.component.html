@@ -1,19 +1,30 @@
 <main>
-  <div class="form-box mx-auto transition-in-bottom-top max-w-screen-sm mx-auto">
+  <div class="form-box mx-auto transition-in-bottom-top">
     <h1 class="center text-3xl font-bold">Welcome to Zepayroll</h1>
     <p class="center mt-4">Login to get access to your account</p>
 
     <!-- Login form  -->
     <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-      <label>
-        Name:
-        <input type="text" formControlName="name">
-        </label>
+        <!-- Email  -->
+
+      <div class="mt-10">
+        <label class="font-bold mt-3">Email</label>
+        <input type="email" formControlName="email" placeholder="Enter email address"
+           class="mt-1 form-control w-full pl-6 rounded-md border shadow-sm border-gray-300
+                  focus:outline-none focus:border-default
+                  focus:ring-default
+                  focus:ring-0.5
+                  focus:border-300
+                  transition duration-0 hover:duration-150
+            ">
+        </div>
       <br>
-        <label>
+
+      <!-- Password  -->
+        <div>
         Email:
         <input type="email" formControlName="email" >
-        </label>
+        </div>
 
         <br>
         <button type="submit" [disabled]="loginForm.invalid">Submit</button>
