@@ -10,6 +10,8 @@ export class LoginComponent {
 
     showPassword: boolean = false;
     validationActive: boolean = false;
+    animateErrorBtn: boolean = false;
+    isLoading: boolean = false;
 
     // Form group
     loginForm = new FormGroup({
@@ -19,11 +21,30 @@ export class LoginComponent {
 
     constructor(){}
 
-
     // onSubmit form
     onSubmit() :void {
-      console.log(this.loginForm.value)
-      console.log(this.loginForm.controls.email.errors?.['required'])
+
+      this.validationActive = true
+
+      // if form is invalid
+      if(this.loginForm.invalid){
+        this.animateErrorBtn = true,
+
+        setTimeout(() => {
+          this.animateErrorBtn = false
+          this.isLoading = false
+        }, 300);
+      } else{
+
+        // If form is valid
+        this.isLoading = true;
+
+        setTimeout(() => {
+          this.isLoading = false
+          console.log(this.loginForm.value);
+        }, 2000);
+
+      }
     }
 
 }

@@ -1,4 +1,12 @@
 <main>
+
+  <!-- Top logo  -->
+  <div class="flex mt-10 ml-10">
+    <img class="" src="/assets/images/logo-no-bg.png" width="24" height="24">
+    <h4 class="font-bold text-lg ml-2">Zepayroll</h4>
+  </div>
+
+
   <div class="form-box mx-auto transition-in-bottom-top">
     <h1 class="center text-3xl font-bold">Welcome to Zepayroll</h1>
     <p class="center mt-4">Login to get access to your account</p>
@@ -9,14 +17,14 @@
       <div class="mt-10">
         <label class="font-bold mt-3">Email</label>
         <input type="email" name="email" formControlName="email" placeholder="Enter email address"
-           class="mt-3 form-control w-full pl-6 rounded-md border shadow-sm border-gray-300
+           class="mt-3 form-control w-full pl-6 rounded-md border border-gray-300
                   focus:outline-none focus:border-default
                   focus:ring-default
                   focus:ring-0.5
                   focus:border-300
                   transition duration-0 hover:duration-150
             "
-            [class]="loginForm.controls.password.errors && validationActive ? 'border-red-500' : ''">
+            [class]="loginForm.controls.email.errors && validationActive ? 'border-red-500' : ''">
           <!-- Email validation message  -->
             <div *ngIf="loginForm.invalid && validationActive">
               <div *ngIf="loginForm.controls.email.errors?.['required']" class="absolute text-red-500 float-left text-sm pt-1">Email is required.</div>
@@ -32,43 +40,46 @@
 
       <div class="relative">
 
-      <input [type]="showPassword ? 'text' : 'password'" name="password" formControlName="password" placeholder="Enter you password" autocomplete="true"
-         class="mt-3 form-control w-full pl-6 rounded-md border shadow-sm border-gray-300
-                focus:outline-none focus:border-default
-                focus:ring-default
-                focus:ring-0.5
-                focus:border-300
-                transition duration-0 hover:duration-150
-          "
-          [class]="loginForm.controls.password.errors && validationActive ? 'border-red-500' : ''">
-          <div class="absolute inset-y-2 right-0 pr-3 pt-1 mt-1 cursor-pointer flex items-center text-sm leading-5" (click)="showPassword=!showPassword">
-            <span *ngIf="showPassword" class="mr-3 text-sm text-gray-400">Hide</span>
-            <span *ngIf="!showPassword" class="mr-3 text-sm text-gray-400">Show</span>
+        <input [type]="showPassword ? 'text' : 'password'" name="password" formControlName="password" placeholder="Enter you password" autocomplete="true"
+          class="mt-3 form-control w-full pl-6 rounded-md border border-gray-300
+                  focus:outline-none focus:border-default
+                  focus:ring-default
+                  focus:ring-0.5
+                  focus:border-300
+                  transition duration-0 hover:duration-150
+            "
+            [class]="loginForm.controls.password.errors && validationActive ? 'border-red-500' : ''">
+            <div class="absolute inset-y-2 right-0 pr-3 pt-1 mt-1 cursor-pointer flex items-center text-sm leading-5" (click)="showPassword=!showPassword">
+              <span *ngIf="showPassword" class="mr-3 text-sm text-gray-400">Hide</span>
+              <span *ngIf="!showPassword" class="mr-3 text-sm text-gray-400">Show</span>
+          </div>
+
+          <!-- Password validation message  -->
+          <div *ngIf="loginForm.invalid && validationActive">
+            <div *ngIf="loginForm.controls.password.errors?.['required']" class="absolute text-red-500 float-left text-sm pt-1">Password is required.</div>
+            <div *ngIf="loginForm.controls.password.errors?.['pattern']" class="absolute text-red-500 float-left text-sm pt-1">Password must contain Uppercase, Lowercase and Number.</div>
+          </div>
+
         </div>
-
-        <!-- Password validation message  -->
-      <div *ngIf="loginForm.invalid && validationActive">
-        <div *ngIf="loginForm.controls.password.errors?.['required']" class="absolute text-red-500 float-left text-sm pt-1">Password is required.</div>
-        <div *ngIf="loginForm.controls.password.errors?.['pattern']" class="absolute text-red-500 float-left text-sm pt-1">Password must contain Uppercase, Lowercase and Number.</div>
-      </div>
-
-
-      </div>
 
       </div>
 
       <p class="mt-7 text-gray-400 cursor-pointer">Forgot password?</p>
 
-        <br>
-        <!-- [disabled]="loginForm.invalid" -->
+
+        <!-- Submit button  -->
         <button type="submit"
-        (click)="validationActive=true"
-        class="inline-flex items-center font-weight-medium w-full place-content-center mt-4 form-auth-btn text-lg bg-default text-white"
-        >
-        <div class="dot-falling"></div>
-        Login
+          [disabled]="isLoading"
+          [class]="[animateErrorBtn ? 'form-auth-btn-error' : '', isLoading ? 'form-auth-btn-disabled' : '']"
+          class="inline-flex items-center font-weight-medium w-full place-content-center mt-4 form-auth-btn text-lg bg-default"
+          >
+          <div *ngIf="isLoading" class="dot-falling"></div>
+        <span *ngIf="!isLoading" class="text-white"> Login </span>
       </button>
     </form>
+
+    <p class="mt-7 text-gray-400">Don’t have an account, <span class="text-default font-bold cursor-pointer">register here</span></p>
+
 
   </div>
 </main>

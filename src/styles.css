@@ -62,28 +62,6 @@
 
 
 
-/* ======== Transition */
-.transition-in-bottom-top{
-
-  animation: fadeinauth 0.5s;
-  -moz-animation: fadeinauth 0.5s; /* Firefox */
-  -webkit-animation: fadeinauth 0.5s; /* Safari and Chrome */
-  -o-animation: fadeinauth 0.5s; /* Opera */
-}
-  @keyframes fadeinauth{
-      from {
-          opacity:0;
-          margin-top: 20px;
-      }
-      to {
-          opacity:1;
-
-      }
-
-  }
-
-
-
 
 
 
@@ -120,11 +98,58 @@
   height: 53px;
   border-radius: 2px;
   font-weight: bold;
+  color: #ffffff;
 }
 
 .form-auth-btn-disabled{
   background-color: #F8F8F8;
   border: 1px solid #F8F8F8;
+  color: #555;
+}
+
+
+
+
+
+
+/* ======== Transition */
+.transition-in-bottom-top{
+
+  animation: fadeinauth 0.5s;
+  -moz-animation: fadeinauth 0.5s; /* Firefox */
+  -webkit-animation: fadeinauth 0.5s; /* Safari and Chrome */
+  -o-animation: fadeinauth 0.5s; /* Opera */
+}
+  @keyframes fadeinauth{
+      from {
+          opacity:0;
+          margin-top: 20px;
+      }
+      to {
+          opacity:1;
+
+      }
+
+  }
+
+ /* Form button animation  */
+ .form-auth-btn-error{
+  animation: bounce_in 0.2s infinite;
+ }
+  @keyframes bounce_in {
+  0%, 100% {
+      position: relative;
+      -webkit-transform: translateX(-1%);
+      transform: translateX(-1%);
+      animation-timing-function: cubic-bezier(0, 0, 3, 0);
+  }
+  50% {
+      position: relative;
+      -webkit-transform: translateX(1%);
+      transform: translateX(1%);
+      animation-timing-function: cubic-bezier(0, 0, 3, 0);
+  }
+
 }
 
 
