@@ -13,6 +13,7 @@ export class RegisterComponent {
   validationActive: boolean = false;
   animateErrorBtn: boolean = false;
   isLoading: boolean = false;
+
   loginForm : FormGroup;
 
   error_messages = {
@@ -56,20 +57,19 @@ export class RegisterComponent {
         Validators.required,
       ])),
     }, {
-      validators: this.password.bind(this)
+      validators: this.confirmPasswordValidation.bind(this)
     });
   }
 
-  ngOnInit() {
-  }
 
-  password(formGroup: FormGroup) {
+
+
+  // Password match function
+  confirmPasswordValidation(formGroup: FormGroup) {
     const password  = formGroup.get('password')?.value;
     const confirmPassword = formGroup.get('confirmPassword')?.value;
     return password === confirmPassword ? null : { passwordNotMatch: true };
   }
-
-
 
 
 
