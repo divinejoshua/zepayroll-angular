@@ -29,8 +29,7 @@ export class RegisterComponent {
 
     'password': [
       { type: 'required', message: 'password is required.' },
-      { type: 'minlength', message: 'password length.' },
-      { type: 'maxlength', message: 'password length.' }
+      { type: 'pattern', message: 'Password must have uppercase, lowercase and number.' }
     ],
     'confirmpassword': [
       { type: 'required', message: 'password is required.' },
@@ -79,8 +78,6 @@ export class RegisterComponent {
 
   // onSubmit form
   onSubmit() :void {
-
-    console.log(this.loginForm.get('confirmPassword')?.errors)
 
     this.validationActive = true
 

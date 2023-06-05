@@ -72,13 +72,13 @@
                         focus:border-300
                         transition duration-0 hover:duration-150
                   "
-                  [class]="loginForm.get('password')?.errors && validationActive ? 'border-red-500' : ''">
+                  [class]="loginForm.get('password')?.errors && validationActive  ? 'border-red-500' : ''">
+                  <ng-container *ngFor="let error of error_messages.password">
+                    <div class="text-red-500 col-span-1 float-left text-sm pt-1" *ngIf="loginForm.get('password')?.hasError(error.type) && validationActive">
+                      {{ error.message }}
+                    </div>
 
-                <!-- Password validation message  -->
-                <!-- <div *ngIf="loginForm.invalid && validationActive">
-                  <div *ngIf="loginForm.controls.password.errors?.['required']" class="absolute text-red-500 float-left text-sm pt-1">Password is required.</div>
-                  <div *ngIf="loginForm.controls.password.errors?.['pattern']" class="col-span-1 text-red-500 float-left text-sm pt-1">Password must contain Uppercase, Lowercase and Number.</div>
-                </div> -->
+                  </ng-container>
 
             </div>
 
