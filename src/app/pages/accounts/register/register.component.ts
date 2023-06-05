@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl, ValidationErrors, ValidatorFn} from '@angular/forms';
 
 @Component({
   selector: 'app-register',
@@ -12,14 +12,22 @@ export class RegisterComponent {
   validationActive: boolean = false;
   animateErrorBtn: boolean = false;
   isLoading: boolean = false;
+  // loginForm : FormGroup;
 
-  // Form group
   loginForm = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email] ),
-    password:  new FormControl('', [Validators.required, Validators.nullValidator, Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/)]),
-  });
+    username: new FormControl('', [Validators.required, Validators.pattern("^[A-Za-z1-9_-]+$")] ),
+    password:  new FormControl('', [Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/)]),
+    confirmPassword: new FormControl('', [Validators.required, confirmPasswordValidator()] ),
 
-  constructor(){}
+  } );
+
+
+  // constructor
+  constructor( public formBuilder: FormBuilder){
+      // Form group
+
+  }
 
   // onSubmit form
   onSubmit() :void {
@@ -46,4 +54,14 @@ export class RegisterComponent {
 
     }
   }
+}
+
+
+// Confirm password validator
+export function confirmPasswordValidator(): ValidatorFn {
+  return (control: AbstractControl): ValidationErrors | null => {
+    let password  = control.get('password');
+    let confirmPassword = control.get('confirmpassword');
+    return password === confirmPassword ? null : { passwordNotMatch: true };
+  };
 }
