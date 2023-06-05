@@ -7,30 +7,80 @@ import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl, Valid
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
+[x: string]: any;
 
   showPassword: boolean = false;
   validationActive: boolean = false;
   animateErrorBtn: boolean = false;
   isLoading: boolean = false;
-  // loginForm : FormGroup;
+  loginForm : FormGroup;
 
-  loginForm = new FormGroup({
-    email: new FormControl('', [Validators.required, Validators.email] ),
-    username: new FormControl('', [Validators.required, Validators.pattern("^[A-Za-z1-9_-]+$")] ),
-    password:  new FormControl('', [Validators.required, Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/)]),
-    confirmPassword: new FormControl('', [Validators.required, confirmPasswordValidator()] ),
+  error_messages = {
 
-  } );
+    'username': [
+      { type: 'required', message: 'Userame is required.' },
+      { type: 'pattern', message: 'Username must contain only [^[A-Za-z1-9_-]+$]' }
+    ],
 
+    'email': [
+      { type: 'required', message: 'Email is required.' },
+      { type: 'email', message: 'Invalid email ' }
+    ],
 
-  // constructor
-  constructor( public formBuilder: FormBuilder){
-      // Form group
-
+    'password': [
+      { type: 'required', message: 'password is required.' },
+      { type: 'minlength', message: 'password length.' },
+      { type: 'maxlength', message: 'password length.' }
+    ],
+    'confirmpassword': [
+      { type: 'required', message: 'password is required.' },
+      { type: 'minlength', message: 'password length.' },
+      { type: 'maxlength', message: 'password length.' }
+    ],
   }
+
+  constructor(
+    public formBuilder: FormBuilder
+  ) {
+    this.loginForm = this.formBuilder.group({
+      username: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern("^[A-Za-z1-9_-]+$")
+      ])),
+      email: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.email,
+      ])),
+      password: new FormControl('', Validators.compose([
+        Validators.required,
+        Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/),
+      ])),
+      confirmPassword: new FormControl('', Validators.compose([
+        Validators.required,
+      ])),
+    }, {
+      validators: this.password.bind(this)
+    });
+  }
+
+  ngOnInit() {
+  }
+
+  password(formGroup: FormGroup) {
+    const password  = formGroup.get('password');
+    const confirmPassword = formGroup.get('confirmpassword');
+    return password === confirmPassword ? null : { passwordNotMatch: true };
+  }
+
+
+
+
+
 
   // onSubmit form
   onSubmit() :void {
+
+    console.log(this.loginForm.get('confirmPassword')?.errors)
 
     this.validationActive = true
 
@@ -56,12 +106,3 @@ export class RegisterComponent {
   }
 }
 
-
-// Confirm password validator
-export function confirmPasswordValidator(): ValidatorFn {
-  return (control: AbstractControl): ValidationErrors | null => {
-    let password  = control.get('password');
-    let confirmPassword = control.get('confirmpassword');
-    return password === confirmPassword ? null : { passwordNotMatch: true };
-  };
-}

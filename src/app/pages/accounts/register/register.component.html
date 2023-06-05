@@ -17,7 +17,7 @@
 
       <div class="grid grid-cols-2 gap-6">
 
-          <!-- Email  -->
+          Email
           <div class="mt-10 col-span-2">
             <label class="font-bold mt-3">Email</label>
             <input type="email" name="email" formControlName="email" placeholder="Enter email address"
@@ -28,12 +28,14 @@
                       focus:border-300
                       transition duration-0 hover:duration-150
                 "
-                [class]="loginForm.controls.email.errors && validationActive ? 'border-red-500' : ''">
-              <!-- Email validation message  -->
-                <div *ngIf="loginForm.invalid && validationActive">
-                  <div *ngIf="loginForm.controls.email.errors?.['required']" class="absolute text-red-500 float-left text-sm pt-1">Email is required.</div>
-                  <div *ngIf="loginForm.controls.email.errors?.['email']" class="absolute text-red-500 float-left text-sm pt-1">Invalid email.</div>
+                [class]="loginForm.get('email')?.errors && validationActive  ? 'border-red-500' : ''">
+
+                <!-- Email validation message  -->
+              <ng-container *ngFor="let error of error_messages.email">
+                <div class="absolute text-red-500 float-left text-sm pt-1" *ngIf="loginForm.get('email')?.hasError(error.type) && validationActive">
+                  {{ error.message }}
                 </div>
+              </ng-container>
 
             </div>
 
@@ -48,13 +50,13 @@
                       focus:border-300
                       transition duration-0 hover:duration-150
                 "
-                [class]="loginForm.controls.username.errors && validationActive ? 'border-red-500' : ''">
-              <!-- Email validation message  -->
-                <div *ngIf="loginForm.invalid && validationActive">
-                  <div *ngIf="loginForm.controls.username.errors?.['required']" class="absolute text-red-500 float-left text-sm pt-1">Username is required.</div>
-                  <div *ngIf="loginForm.controls.username.errors?.['pattern']" class="absolute text-red-500 float-left text-sm pt-1">Username must contain only [^[A-Za-z1-9_-]+$].</div>
-                </div>
+                [class]="loginForm.get('username')?.errors && validationActive  ? 'border-red-500' : ''">
+                <ng-container *ngFor="let error of error_messages.username">
+                  <div class="absolute text-red-500 float-left text-sm pt-1" *ngIf="loginForm.get('username')?.hasError(error.type) && validationActive">
+                    {{ error.message }}
+                  </div>
 
+                </ng-container>
           </div>
 
 
@@ -70,13 +72,13 @@
                         focus:border-300
                         transition duration-0 hover:duration-150
                   "
-                  [class]="loginForm.controls.password.errors && validationActive ? 'border-red-500' : ''">
+                  [class]="loginForm.get('password')?.errors && validationActive ? 'border-red-500' : ''">
 
                 <!-- Password validation message  -->
-                <div *ngIf="loginForm.invalid && validationActive">
+                <!-- <div *ngIf="loginForm.invalid && validationActive">
                   <div *ngIf="loginForm.controls.password.errors?.['required']" class="absolute text-red-500 float-left text-sm pt-1">Password is required.</div>
-                  <div *ngIf="loginForm.controls.password.errors?.['confirmPasswordValidator']" class="col-span-1 text-red-500 float-left text-sm pt-1">Password must contain Uppercase, Lowercase and Number.</div>
-                </div>
+                  <div *ngIf="loginForm.controls.password.errors?.['pattern']" class="col-span-1 text-red-500 float-left text-sm pt-1">Password must contain Uppercase, Lowercase and Number.</div>
+                </div> -->
 
             </div>
 
@@ -92,13 +94,13 @@
                         focus:border-300
                         transition duration-0 hover:duration-150
                   "
-                  [class]="loginForm.controls.confirmPassword.errors && validationActive ? 'border-red-500' : ''">
+                  [class]="loginForm.get('confirmPassword')?.errors">
 
                 <!--Confirm password validation message  -->
-                <div *ngIf="loginForm.invalid && validationActive">
+                <!-- <div *ngIf="loginForm.invalid && validationActive">
                   <div *ngIf="loginForm.controls.confirmPassword.errors?.['required']" class="absolute text-red-500 float-left text-sm pt-1">Confirm Password is required.</div>
-                  <div *ngIf="loginForm.controls.confirmPassword.errors?.['pattern']" class="absolute text-red-500 float-left text-sm pt-1">Password doesnt match.</div>
-                </div>
+                  <div *ngIf="loginForm.get('confirmPassword')" class="absolute text-red-500 float-left text-sm pt-1">Password doesnt match.</div>
+                </div> -->
 
             </div>
 
