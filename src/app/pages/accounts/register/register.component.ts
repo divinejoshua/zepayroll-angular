@@ -65,6 +65,7 @@ export class RegisterComponent {
 
 
   // Password match function
+  //NOTE: Custom validations neeed their own messages on the html template
   confirmPasswordValidation(formGroup: FormGroup) {
     const password  = formGroup.get('password')?.value;
     const confirmPassword = formGroup.get('confirmPassword')?.value;

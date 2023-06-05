@@ -51,6 +51,8 @@
                       transition duration-0 hover:duration-150
                 "
                 [class]="loginForm.get('username')?.errors && validationActive  ? 'border-red-500' : ''">
+
+                  <!-- Error messages  -->
                 <ng-container *ngFor="let error of error_messages.username">
                   <div class="absolute text-red-500 float-left text-sm pt-1" *ngIf="loginForm.get('username')?.hasError(error.type) && validationActive">
                     {{ error.message }}
@@ -73,6 +75,8 @@
                         transition duration-0 hover:duration-150
                   "
                   [class]="loginForm.get('password')?.errors && validationActive  ? 'border-red-500' : ''">
+
+                  <!-- Error messages  -->
                   <ng-container *ngFor="let error of error_messages.password">
                     <div class="text-red-500 col-span-1 float-left text-sm pt-1" *ngIf="loginForm.get('password')?.hasError(error.type) && validationActive">
                       {{ error.message }}
@@ -95,12 +99,16 @@
                         transition duration-0 hover:duration-150
                   "
                   [class]="loginForm.get('confirmPassword')?.errors && validationActive  ? 'border-red-500' : ''">
+
+                  <!-- Error message  -->
                   <ng-container *ngFor="let error of error_messages.confirmPassword">
                     <div class="text-red-500 col-span-1 float-left text-sm pt-1" *ngIf="loginForm.get('confirmPassword')?.hasError(error.type) && validationActive">
                       {{ error.message }}
                     </div>
 
-                    <!-- Password matching validation  -->
+
+                    <!-- Password matching validation -->
+                    <!-- //NOTE: Custom validations neeed their own messages on the html template -->
                     <div class="text-red-500 col-span-1 float-left text-sm pt-1" *ngIf="loginForm.errors?.['passwordNotMatch'] && !loginForm.get('confirmPassword')?.hasError(error.type) && validationActive">
                       Passwords do not match
                     </div>
