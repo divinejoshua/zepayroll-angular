@@ -7,13 +7,15 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './pages/home/home.component';
 import { PayoutComponent } from './pages/payout/payout.component';
 import { LoginComponent } from './pages/accounts/login/login.component';
+import { RegisterComponent } from './pages/accounts/register/register.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PayoutComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
