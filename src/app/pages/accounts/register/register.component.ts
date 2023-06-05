@@ -31,10 +31,8 @@ export class RegisterComponent {
       { type: 'required', message: 'password is required.' },
       { type: 'pattern', message: 'Password must have uppercase, lowercase and number.' }
     ],
-    'confirmpassword': [
-      { type: 'required', message: 'password is required.' },
-      { type: 'minlength', message: 'password length.' },
-      { type: 'maxlength', message: 'password length.' }
+    'confirmPassword': [
+      { type: 'required', message: 'Confirm password is required.' },
     ],
   }
 
@@ -66,8 +64,8 @@ export class RegisterComponent {
   }
 
   password(formGroup: FormGroup) {
-    const password  = formGroup.get('password');
-    const confirmPassword = formGroup.get('confirmpassword');
+    const password  = formGroup.get('password')?.value;
+    const confirmPassword = formGroup.get('confirmPassword')?.value;
     return password === confirmPassword ? null : { passwordNotMatch: true };
   }
 

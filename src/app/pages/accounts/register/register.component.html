@@ -94,13 +94,18 @@
                         focus:border-300
                         transition duration-0 hover:duration-150
                   "
-                  [class]="loginForm.get('confirmPassword')?.errors">
+                  [class]="loginForm.get('confirmPassword')?.errors && validationActive  ? 'border-red-500' : ''">
+                  <ng-container *ngFor="let error of error_messages.confirmPassword">
+                    <div class="text-red-500 col-span-1 float-left text-sm pt-1" *ngIf="loginForm.get('confirmPassword')?.hasError(error.type) && validationActive">
+                      {{ error.message }}
+                    </div>
 
-                <!--Confirm password validation message  -->
-                <!-- <div *ngIf="loginForm.invalid && validationActive">
-                  <div *ngIf="loginForm.controls.confirmPassword.errors?.['required']" class="absolute text-red-500 float-left text-sm pt-1">Confirm Password is required.</div>
-                  <div *ngIf="loginForm.get('confirmPassword')" class="absolute text-red-500 float-left text-sm pt-1">Password doesnt match.</div>
-                </div> -->
+                    <!-- Password matching validation  -->
+                    <div class="text-red-500 col-span-1 float-left text-sm pt-1" *ngIf="loginForm.errors?.['passwordNotMatch'] && !loginForm.get('confirmPassword')?.hasError(error.type) && validationActive">
+                      Passwords do not match
+                    </div>
+
+                  </ng-container>
 
             </div>
 
@@ -120,7 +125,6 @@
 
       </div>
     </form>
-
 
     <p class="mt-7 text-gray-400">Already have an account? <a routerLink="/accounts/login" class="text-default font-bold cursor-pointer" >login here </a></p>
 
