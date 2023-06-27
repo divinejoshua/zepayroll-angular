@@ -19,7 +19,7 @@ export class RegisterComponent {
   error_messages = {
 
     'username': [
-      { type: 'required', message: 'Userame is required.' },
+      { type: 'required', message: 'Username is required.' },
       { type: 'pattern', message: 'Username must contain only [^[A-Za-z1-9_-]+$]' }
     ],
 
