@@ -112,6 +112,39 @@
 
 
 
+
+
+
+  /* Dashboard  */
+
+  .sidebar{
+    min-width:300px;
+    height:100%;
+    position: fixed;
+    top: 0;
+    background-color:#FEFEFE;
+    padding-top: 40px;
+    z-index: 1;
+    border-right: 1px solid #efefef;
+
+}
+
+
+.mainbar{
+  margin-left:300px;
+  padding-top: 40px;
+  padding-left: 40px;
+  padding-right: 20px;
+}
+
+
+
+
+
+
+
+
+
 /* ======== Transition */
 .transition-in-bottom-top{
 
@@ -238,6 +271,10 @@
       box-shadow: 10011px 10px 0 0 rgba(152, 128, 255, 0);
     }
   }
+
+
+
+
 
 
 

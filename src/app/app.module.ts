@@ -8,6 +8,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { PayoutComponent } from './pages/payout/payout.component';
 import { LoginComponent } from './pages/accounts/login/login.component';
 import { RegisterComponent } from './pages/accounts/register/register.component';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -15,13 +16,14 @@ import { RegisterComponent } from './pages/accounts/register/register.component'
     HomeComponent,
     PayoutComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
