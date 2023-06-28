@@ -7,7 +7,6 @@ import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl, Valid
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
-[x: string]: any;
 
   showPassword: boolean = false;
   validationActive: boolean = false;
@@ -19,7 +18,7 @@ export class RegisterComponent {
   error_messages = {
 
     'username': [
-      { type: 'required', message: 'Username is required.' },
+      { type: 'required', message: 'Username is required.'},
       { type: 'pattern', message: 'Username must contain only [^[A-Za-z1-9_-]+$]' }
     ],
 
