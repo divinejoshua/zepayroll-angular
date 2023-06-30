@@ -56,7 +56,7 @@
 
 
     <!-- Transactions  -->
-    <div class="mt-14">
+    <div class="mt-14 mb-10">
      <p class="flex">  <img class="" src="/assets/images/recent-icon.svg" width="24"> <span class="mt-1 ml-2 text-sm font-bold text-gray-500">Recent transactions</span> </p>
 
      <!-- List  -->
@@ -81,50 +81,30 @@
               </th>
             </tr>
           </thead>
-          <tbody>
 
+          <tbody *ngFor="let transaction of transactionsList.transactions; let index = index">
 
             <!-- Row 1 -->
             <tr class="border-b">
               <td class="px-6 py-5 whitespace-no-wrap">
-                John Doe
+                {{transaction.name}}
               </td>
               <td class="px-6 py-5 whitespace-no-wrap">
-                #340,000
+                #{{transaction.amount}}
               </td>
               <td class="px-6 py-5 whitespace-no-wrap">
-                2023-06-15
+                {{transaction.date}}
               </td>
               <td class="px-6 py-5 whitespace-no-wrap">
-                Example Bank
+                {{transaction.bank}}
               </td>
               <td class="px-6 py-5 whitespace-no-wrap">
-                1234567890
+                {{transaction.accountNumber}}
               </td>
             </tr>
-
-            <!-- Row 2 -->
-            <tr>
-              <td class="px-6 py-5 whitespace-no-wrap">
-                Jane Smith
-              </td>
-              <td class="px-6 py-5 whitespace-no-wrap">
-                #450,600
-              </td>
-              <td class="px-6 py-5 whitespace-no-wrap">
-                2023-06-25
-              </td>
-              <td class="px-6 py-5 whitespace-no-wrap">
-                Another Bank
-              </td>
-              <td class="px-6 py-5 whitespace-no-wrap">
-                9876543210
-              </td>
-            </tr>
-
-            <!-- Add more rows as needed -->
 
           </tbody>
+
         </table>
       </div>
 

@@ -6,5 +6,19 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DataService {
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
+
+  // Base Url from environment variable
+
+  transactionList: any;
+
+
+  // Get search results
+  getTransactionList() {
+
+    this.transactionList = this.http.get("assets/data/transactions.json")
+
+    return  this.transactionList
+  }
+
 }

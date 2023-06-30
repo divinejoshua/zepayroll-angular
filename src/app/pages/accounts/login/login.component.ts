@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
@@ -19,7 +20,7 @@ export class LoginComponent {
       password:  new FormControl('', [Validators.required, Validators.nullValidator, Validators.pattern(/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[^A-Za-z0-9]).{8,}$/)]),
     });
 
-    constructor(){}
+    constructor(private router: Router){}
 
     // onSubmit form
     onSubmit() :void {
@@ -42,6 +43,12 @@ export class LoginComponent {
         setTimeout(() => {
           this.isLoading = false
           console.log(this.loginForm.value);
+
+          this.router.navigate(
+            ['/home'],
+          );
+
+
         }, 2000);
 
       }
