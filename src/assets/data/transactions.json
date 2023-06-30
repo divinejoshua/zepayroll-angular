@@ -1,0 +1,89 @@
+{
+  "transactions": [
+    {
+      "name": "Joel Smash",
+      "amount": "340,000",
+      "date": "13 Jan 2023",
+      "bank": "Zenith Bank",
+      "accountNumber": "1209792473"
+    },
+    {
+      "name": "Mike Shola",
+      "amount": "450,600",
+      "date": "13 Jan 2023",
+      "bank": "UBA",
+      "accountNumber": "1209792473"
+    },
+    {
+      "name": "Frank Olamide",
+      "amount": "30,000",
+      "date": "First Bank",
+      "bank": "Another Bank",
+      "accountNumber": "1209792473"
+    },
+    {
+      "name": "Chucks Oke",
+      "amount": "600,000",
+      "date": "2023-06-25",
+      "bank": "Another Bank",
+      "accountNumber": "1209792473"
+    },
+    {
+      "name": "Joel Smash",
+      "amount": "340,000",
+      "date": "13 Jan 2023",
+      "bank": "Zenith Bank",
+      "accountNumber": "1209792473"
+    },
+    {
+      "name": "Mike Shola",
+      "amount": "450,600",
+      "date": "13 Jan 2023",
+      "bank": "UBA",
+      "accountNumber": "1209792473"
+    },
+    {
+      "name": "Frank Olamide",
+      "amount": "30,000",
+      "date": "First Bank",
+      "bank": "Another Bank",
+      "accountNumber": "1209792473"
+    },
+    {
+      "name": "Chucks Oke",
+      "amount": "600,000",
+      "date": "2023-06-25",
+      "bank": "Another Bank",
+      "accountNumber": "1209792473"
+    },
+    {
+      "name": "Joel Smash",
+      "amount": "340,000",
+      "date": "13 Jan 2023",
+      "bank": "Zenith Bank",
+      "accountNumber": "1209792473"
+    },
+    {
+      "name": "Mike Shola",
+      "amount": "450,600",
+      "date": "13 Jan 2023",
+      "bank": "UBA",
+      "accountNumber": "1209792473"
+    },
+    {
+      "name": "Frank Olamide",
+      "amount": "30,000",
+      "date": "First Bank",
+      "bank": "Another Bank",
+      "accountNumber": "1209792473"
+    },
+    {
+      "name": "Chucks Oke",
+      "amount": "600,000",
+      "date": "2023-06-25",
+      "bank": "Another Bank",
+      "accountNumber": "1209792473"
+    }
+
+  ]
+}

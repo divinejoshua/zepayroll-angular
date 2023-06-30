@@ -8,7 +8,7 @@
 
 
   <!-- Main bar  -->
-  <section class="mainbar mt-20 ">
+  <section class="mainbar mt-20">
 
     <!-- Dashboard Cards -->
     <div class="grid grid-cols-3 gap-4">
@@ -49,17 +49,86 @@
         <img class="" src="/assets/images/plus-icon.svg" width="20"> <span class="padding-1 ml-2 text-white text-sm font-bold">Make a Payout</span>
       </button>
 
-      <button type="button" class="border pt-4 pb-4 pl-7 pr-7 rounded-sm flex ml-7">
+      <button type="button" class="border pt-4 pb-4 pl-7 pr-7 rounded-sm flex ml-5">
         <img class="" src="/assets/images/fund-icon.svg" width="20"> <span class="padding-1 ml-2 text-sm font-bold">Fund wallet</span>
       </button>
     </div>
 
 
-    <!-- Transaction list  -->
+    <!-- Transactions  -->
     <div class="mt-14">
      <p class="flex">  <img class="" src="/assets/images/recent-icon.svg" width="24"> <span class="mt-1 ml-2 text-sm font-bold text-gray-500">Recent transactions</span> </p>
 
-    </div>
+     <!-- List  -->
+      <div class="container mx-auto shadow-sm border mt-7">
+        <table class="min-w-full bg-white">
+          <thead>
+            <tr class="border-b">
+              <th class="px-6 py-5 text-left tracking-wider">
+                Name
+              </th>
+              <th class="px-6 py-5 text-left tracking-wider">
+                Amount
+              </th>
+              <th class="px-6 py-5 text-left tracking-wider">
+                Date
+              </th>
+              <th class="px-6 py-5 text-left tracking-wider">
+                Bank
+              </th>
+              <th class="px-6 py-5 text-left tracking-wider">
+                Account Number
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+
+
+            <!-- Row 1 -->
+            <tr class="border-b">
+              <td class="px-6 py-5 whitespace-no-wrap">
+                John Doe
+              </td>
+              <td class="px-6 py-5 whitespace-no-wrap">
+                #340,000
+              </td>
+              <td class="px-6 py-5 whitespace-no-wrap">
+                2023-06-15
+              </td>
+              <td class="px-6 py-5 whitespace-no-wrap">
+                Example Bank
+              </td>
+              <td class="px-6 py-5 whitespace-no-wrap">
+                1234567890
+              </td>
+            </tr>
+
+            <!-- Row 2 -->
+            <tr>
+              <td class="px-6 py-5 whitespace-no-wrap">
+                Jane Smith
+              </td>
+              <td class="px-6 py-5 whitespace-no-wrap">
+                #450,600
+              </td>
+              <td class="px-6 py-5 whitespace-no-wrap">
+                2023-06-25
+              </td>
+              <td class="px-6 py-5 whitespace-no-wrap">
+                Another Bank
+              </td>
+              <td class="px-6 py-5 whitespace-no-wrap">
+                9876543210
+              </td>
+            </tr>
+
+            <!-- Add more rows as needed -->
+
+          </tbody>
+        </table>
+      </div>
+
+     </div>
 
 
 
