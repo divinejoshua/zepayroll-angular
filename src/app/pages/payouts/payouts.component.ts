@@ -35,7 +35,6 @@ export class PayoutsComponent {
         (response: any) =>{
           this.payoutGroupList = response
           this.isLoading = false
-          console.log(this.payoutGroupList)
         },
 
         // Error

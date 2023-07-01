@@ -33,7 +33,6 @@ export class HomeComponent {
         (response: any) =>{
           this.transactionsList = response
           this.isLoading = false
-          console.log(this.transactionsList)
         },
 
         // Error
