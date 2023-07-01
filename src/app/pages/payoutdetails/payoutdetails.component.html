@@ -85,7 +85,12 @@
                 {{productDetailList.accountNumber}}
               </td>
               <td class="px-6 py-5 whitespace-no-wrap">
-                {{productDetailList.date}}
+
+                <!-- if the transaction state is pending  -->
+                <span *ngIf="productDetailList.state=='PENDING'" class="bg-gray-100 py-1 px-3 text-gray-500 font-bold rounded-sm text-sm">Pending</span>
+
+                 <!-- if the transaction state is paid  -->
+                <span *ngIf="productDetailList.state=='PAID'" class="bg-teal-100 py-1 px-3 text-default font-bold rounded-sm text-sm">Paid</span>
               </td>
             </tr>
 
