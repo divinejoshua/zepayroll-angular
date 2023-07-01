@@ -14,6 +14,7 @@ export class PayoutsComponent {
   isLoading : boolean
   isError : boolean
 
+  overlay : boolean = true
   showCreatePayoutOverlay : boolean = true
 
 
