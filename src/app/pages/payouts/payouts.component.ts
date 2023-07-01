@@ -10,18 +10,19 @@ import { DataService } from 'src/app/core/services/data/data.service';
 })
 export class PayoutsComponent {
 
-
   payoutGroupList : any
   isLoading : boolean
   isError : boolean
 
+  showCreatePayoutOverlay : boolean = true
 
-    // Constructor
-    constructor(private DataService : DataService, private router: Router){
-      this.payoutGroupList = []
-      this.isLoading = false
-      this.isError = false
-    }
+
+  // Constructor
+  constructor(private DataService : DataService, private router: Router){
+    this.payoutGroupList = []
+    this.isLoading = false
+    this.isError = false
+  }
 
 
    // On Submit
