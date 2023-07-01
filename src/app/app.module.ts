@@ -10,6 +10,7 @@ import { LoginComponent } from './pages/accounts/login/login.component';
 import { RegisterComponent } from './pages/accounts/register/register.component';
 import { SharedModule } from './shared/shared.module';
 import { PayoutsComponent } from './pages/payouts/payouts.component';
+import { PayoutdetailsComponent } from './pages/payoutdetails/payoutdetails.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { PayoutsComponent } from './pages/payouts/payouts.component';
     LoginComponent,
     RegisterComponent,
     PayoutsComponent,
+    PayoutdetailsComponent,
   ],
   imports: [
     BrowserModule,
