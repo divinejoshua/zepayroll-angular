@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormGroup, FormControl, FormBuilder, Validators, AbstractControl, ValidationErrors, ValidatorFn} from '@angular/forms';
 
 @Component({
@@ -37,7 +38,7 @@ export class RegisterComponent {
   }
 
   constructor(
-    public formBuilder: FormBuilder
+    public formBuilder: FormBuilder, private router: Router
   ) {
     this.loginForm = this.formBuilder.group({
       username: new FormControl('', Validators.compose([
@@ -95,6 +96,12 @@ export class RegisterComponent {
       setTimeout(() => {
         this.isLoading = false
         console.log(this.loginForm.value);
+
+        // Move to logi page
+        this.router.navigate(
+          ['/home'],
+        );
+
       }, 2000);
 
     }

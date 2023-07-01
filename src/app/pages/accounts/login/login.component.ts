@@ -44,8 +44,9 @@ export class LoginComponent {
           this.isLoading = false
           console.log(this.loginForm.value);
 
+          // Move to home page
           this.router.navigate(
-            ['/home'],
+            ['/accounts/login'],
           );
 
 
