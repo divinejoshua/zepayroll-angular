@@ -296,6 +296,58 @@
 
 
 
+  /* Product page animation */
+  .transition-page-bottom-top{
+      animation: topin .5s;
+      -moz-animation: topin .5s; /* Firefox */
+      -webkit-animation: topin .5s; /* Safari and Chrome */
+      -o-animation: topin .5s; /* Opera */
+  }
+      @keyframes topin {
+          from {
+              opacity:0;
+              transform: translateY(3px);
+          }
+          to {
+              opacity:1;
+
+          }
+      }
+      @-moz-keyframes topin { /* Firefox */
+          from {
+              opacity:0;
+          }
+          to {
+              opacity:1;
+          }
+      }
+      @-webkit-keyframes topin { /* Safari and Chrome */
+          from {
+              opacity:0;
+          }
+          to {
+              opacity:1;
+          }
+      }
+      @-o-keyframes topin { /* Opera */
+          from {
+              opacity:0;
+          }
+          to {
+              opacity: 1;
+          }
+      }
+
+  @keyframes animate-fade {
+      0% {
+          opacity: 0.3;
+      }
+      100% {
+          opacity: 1;
+      }
+      }
+
+
 
 
 
