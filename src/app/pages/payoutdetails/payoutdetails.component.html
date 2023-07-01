@@ -1,1 +1,118 @@
-<p>payoutdetails works! /{{payoutId}}</p>
+<main>
+
+  <!-- Sidebar   -->
+  <app-sidebar></app-sidebar>
+
+  <!-- Header  -->
+  <app-header HeaderName="Dashboard"></app-header>
+
+
+  <!-- Main bar  -->
+  <section class="mainbar mt-20 transition-page-bottom-top">
+
+    <!-- Dashboard Cards -->
+    <div class="grid grid-cols-3 gap-4">
+
+      <!-- Payouts  -->
+      <div class="border flex rounded-sm pt-7 pb-7 pl-5 pr-5">
+        <img class="" src="/assets/images/payout-card-icon.svg" width="45">
+        <div class="ml-7">
+          <p class="text-sm font-bold text-gray-500">Total Payouts</p>
+          <h2 class="mt-1 text-lg font-bold"># 56,349,600</h2>
+        </div>
+      </div>
+
+      <!-- Balance  -->
+      <div class="border flex rounded-sm pt-7 pb-7 pl-5 pr-5">
+        <img class="" src="/assets/images/balance-icon.svg" width="45">
+        <div class="ml-7">
+          <p class="text-sm font-bold text-gray-500">Total Balance</p>
+          <h2 class="mt-1 text-lg font-bold"># 23,456,700</h2>
+        </div>
+      </div>
+
+      <!-- Transactions  -->
+      <div class="border flex rounded-sm pt-7 pb-7 pl-5 pr-5">
+        <!-- <img class="" src="/assets/images/payout-card-icon.svg" width="45"> -->
+        <div class="ml-7">
+          <p class="text-sm font-bold text-gray-500">Total Transactions</p>
+          <h2 class="mt-1 text-lg font-bold">3,846</h2>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- Action buttons  -->
+    <div class="mt-10 flex">
+      <button type="button" class="bg-default pt-4 pb-4 pl-7 pr-7 shadow rounded-sm flex">
+        <img class="" src="/assets/images/plus-icon.svg" width="20"> <span class="padding-1 ml-2 text-white text-sm font-bold">Make a Payout</span>
+      </button>
+
+      <button type="button" class="border pt-4 pb-4 pl-7 pr-7 rounded-sm flex ml-5">
+        <img class="" src="/assets/images/fund-icon.svg" width="20"> <span class="padding-1 ml-2 text-sm font-bold">Fund wallet</span>
+      </button>
+    </div>
+
+
+    <!-- Transactions  -->
+    <div class="mt-14 mb-10">
+     <p class="flex">  <img class="" src="/assets/images/recent-icon.svg" width="24"> <span class="mt-1 ml-2 text-sm font-bold text-gray-500">Recent transactions</span> </p>
+
+     <!-- List  -->
+      <div class="container mx-auto shadow-sm border mt-7">
+        <table class="min-w-full bg-white">
+          <thead>
+            <tr class="border-b">
+              <th class="px-6 py-5 text-left tracking-wider">
+                Name
+              </th>
+              <th class="px-6 py-5 text-left tracking-wider">
+                Amount
+              </th>
+              <th class="px-6 py-5 text-left tracking-wider">
+                Date
+              </th>
+              <th class="px-6 py-5 text-left tracking-wider">
+                Bank
+              </th>
+              <th class="px-6 py-5 text-left tracking-wider">
+                Account Number
+              </th>
+            </tr>
+          </thead>
+
+          Loop through the transaction list
+          <!-- <tbody *ngFor="let transaction of transactionsList.transactions; let index = index"> -->
+
+            <!-- Row 1 -->
+            <!-- <tr class="border-b">
+              <td class="px-6 py-5 whitespace-no-wrap">
+                {{transaction.name}}
+              </td>
+              <td class="px-6 py-5 whitespace-no-wrap">
+                #{{transaction.amount}}
+              </td>
+              <td class="px-6 py-5 whitespace-no-wrap">
+                {{transaction.date}}
+              </td>
+              <td class="px-6 py-5 whitespace-no-wrap">
+                {{transaction.bank}}
+              </td>
+              <td class="px-6 py-5 whitespace-no-wrap">
+                {{transaction.accountNumber}}
+              </td>
+            </tr>
+
+          </tbody> -->
+
+        </table>
+      </div>
+
+     </div>
+
+
+
+  </section>
+
+</main>

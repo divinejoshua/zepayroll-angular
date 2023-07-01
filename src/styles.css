@@ -15,6 +15,10 @@
   color:#121212;
 }
 
+a {
+  all: unset;
+}
+
 /* Center  */
 .center {
   display: flex;
@@ -198,6 +202,13 @@
 .webkit-appearance-none{
   -webkit-appearance: none;
 }
+
+
+
+table tr td, table tr th {
+  page-break-inside: avoid;
+}
+
 
 
 
