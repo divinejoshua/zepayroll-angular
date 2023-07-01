@@ -7,14 +7,18 @@
   <ul class="mt-10">
 
     <!-- Dashboard Link -->
-    <li class="p-5 pl-10 font-bold cursor-pointer bg-gray-100 flex">
-      <img class="" src="/assets/images/home-icon.svg" width="20"> <span class="mt-1 ml-5">Dashboard</span>
-    </li>
+    <a routerLink="/home" >
+      <li class="p-5 pl-10 font-bold cursor-pointer flex" routerLinkActive="bg-gray-100">
+        <img class="" src="/assets/images/home-icon.svg" width="20"> <span class="mt-1 ml-5">Dashboard</span>
+      </li>
+    </a>
 
     <!-- Payout link  -->
-    <li class="p-5 pl-10 font-bold text-gray-700 cursor-pointer flex">
-      <img class="" src="/assets/images/payouts-icon.svg" width="20"> <span class="mt-1 ml-5">Payouts</span>
-    </li>
+    <a routerLink="/payouts" class="">
+      <li class="p-5 pl-10 font-bold text-gray-700 cursor-pointer flex" routerLinkActive="bg-gray-100">
+        <img class="" src="/assets/images/payouts-icon.svg" width="20"> <span class="mt-1 ml-5">Payouts</span>
+      </li>
+    </a>
 
 
     <li class="p-5 pl-10 font-bold text-gray-700 cursor-pointer flex">

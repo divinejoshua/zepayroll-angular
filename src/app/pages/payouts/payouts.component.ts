@@ -2,11 +2,12 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  selector: 'app-payouts',
+  templateUrl: './payouts.component.html',
+  styleUrls: ['./payouts.component.css']
 })
-export class SidebarComponent {
+export class PayoutsComponent {
+
 
   constructor(private router: Router){}
 

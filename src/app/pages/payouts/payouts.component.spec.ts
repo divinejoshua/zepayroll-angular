@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PayoutComponent } from './payout.component';
+import { PayoutsComponent } from './payouts.component';
 
-describe('PayoutComponent', () => {
-  let component: PayoutComponent;
-  let fixture: ComponentFixture<PayoutComponent>;
+describe('PayoutsComponent', () => {
+  let component: PayoutsComponent;
+  let fixture: ComponentFixture<PayoutsComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PayoutComponent ]
+      declarations: [ PayoutsComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PayoutComponent);
+    fixture = TestBed.createComponent(PayoutsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataService } from 'src/app/core/services/data/data.service';
 
 @Component({
@@ -14,7 +15,7 @@ export class HomeComponent {
 
 
     // Constructor
-    constructor(private DataService : DataService){
+    constructor(private DataService : DataService, private router: Router){
       this.transactionsList = []
       this.isLoading = false
       this.isError = false
