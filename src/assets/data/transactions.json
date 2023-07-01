@@ -5,84 +5,96 @@
       "amount": "340,000",
       "date": "13 Jan 2023",
       "bank": "Zenith Bank",
-      "accountNumber": "1209792473"
+      "accountNumber": "1209792473",
+      "state" : "PAID"
     },
     {
       "name": "Mike Shola",
       "amount": "450,600",
       "date": "13 Jan 2023",
       "bank": "UBA",
-      "accountNumber": "1209792473"
+      "accountNumber": "1209792473",
+      "state" : "PAID"
     },
     {
       "name": "Frank Olamide",
       "amount": "30,000",
       "date": "13 Jan 2023",
       "bank": "Access Bank",
-      "accountNumber": "1209792473"
+      "accountNumber": "1209792473",
+      "state" : "PENDING"
     },
     {
       "name": "Chucks Oke",
       "amount": "600,000",
       "date": "13 Jan 2023",
       "bank": "Access Bank",
-      "accountNumber": "1209792473"
+      "accountNumber": "1209792473",
+      "state" : "PAID"
     },
     {
       "name": "Joel Smash",
       "amount": "340,000",
       "date": "13 Jan 2023",
       "bank": "Zenith Bank",
-      "accountNumber": "1209792473"
+      "accountNumber": "1209792473",
+      "state" : "PENDING"
     },
     {
       "name": "Mike Shola",
       "amount": "450,600",
       "date": "13 Jan 2023",
       "bank": "UBA",
-      "accountNumber": "1209792473"
+      "accountNumber": "1209792473",
+      "state" : "PENDING"
     },
     {
       "name": "Frank Olamide",
       "amount": "30,000",
       "date": "13 Jan 2023",
       "bank": "Access Bank",
-      "accountNumber": "1209792473"
+      "accountNumber": "1209792473",
+      "state" : "PENDING"
     },
     {
       "name": "Chucks Oke",
       "amount": "600,000",
       "date": "13 Jan 2023",
       "bank": "Access Bank",
-      "accountNumber": "1209792473"
+      "accountNumber": "1209792473",
+      "state" : "PENDING"
     },
     {
       "name": "Joel Smash",
       "amount": "340,000",
       "date": "13 Jan 2023",
       "bank": "Zenith Bank",
-      "accountNumber": "1209792473"
+      "accountNumber": "1209792473",
+      "state" : "PAID"
     },
     {
       "name": "Mike Shola",
       "amount": "450,600",
       "date": "13 Jan 2023",
       "bank": "UBA",
-      "accountNumber": "1209792473"
+      "accountNumber": "1209792473",
+      "state" : "PAID"
     },
     {
       "name": "Frank Olamide",
       "amount": "30,000",
       "date": "13 Jan 2023",
       "bank": "Access Bank",
-      "accountNumber": "1209792473"
+      "accountNumber": "1209792473",
+      "state" : "PAID"
     },
     {
       "name": "Chucks Oke",
       "amount": "600,000",
       "date": "13 Jan 2023",
       "bank": "Access Bank",
-      "accountNumber": "1209792473"
+      "accountNumber": "1209792473",
+      "state" : "PAID"
     }
 
   ],

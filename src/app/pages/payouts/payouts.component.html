@@ -27,20 +27,20 @@
 
         <!-- Rows -->
           <tr routerLink="/payouts/{{groupList.members}}" class="border-b border-gray-100 cursor-pointer w-full">
-            <td class="py-5 whitespace-no-wrap">
+            <td class="py-4 whitespace-no-wrap">
               <img class="" src="{{groupList.src}}" width="45">
             </td>
-            <td class="px-6 py-5 whitespace-no-wrap font-bold">
+            <td class="px-6 py-4 whitespace-no-wrap font-bold">
               {{groupList.name}}
             </td>
-            <td class="px-6 py-5 whitespace-no-wrap text-gray-500">
+            <td class="px-6 py-4 whitespace-no-wrap text-gray-500">
               {{groupList.members}} members
             </td>
-            <td class="px-6 py-5 whitespace-no-wrap">
+            <td class="px-6 py-4 whitespace-no-wrap">
               <span *ngIf="groupList.inProgress==true" class="bg-teal-100 py-1 px-3 text-default font-bold rounded-sm">In progress</span>
               <span *ngIf="groupList.inProgress!=true" class="text-gray-500">Last Active:   {{groupList.lastActive}}</span>
             </td>
-            <td class="py-5 whitespace-no-wrap flex">
+            <td class="py-4 whitespace-no-wrap flex">
               <img class="mt-4 float-right" src="/assets/images/edit-payout.svg" width="17">
               <img class="mt-4 ml-4 " src="/assets/images/delete-payout.svg" width="17">
             </td>

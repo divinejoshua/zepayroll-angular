@@ -41,7 +41,7 @@
 
     <div class="clearfix">
         <p class="float-left text-gray-500"> {{payoutId}} members</p>
-        <p class="float-right text-gray-500"> {{payoutId}} members</p>
+        <p class="float-right"> <span class="text-gray-500">Total amount </span>    &nbsp;&nbsp; &#x2022; &nbsp;&nbsp;   23,440,456 members</p>
     </div>
 
      <!-- List  -->
@@ -56,13 +56,13 @@
                 Amount
               </th>
               <th class="px-6 py-5 text-left tracking-wider">
-                Date
-              </th>
-              <th class="px-6 py-5 text-left tracking-wider">
                 Bank
               </th>
               <th class="px-6 py-5 text-left tracking-wider">
                 Account Number
+              </th>
+              <th class="px-6 py-5 text-left tracking-wider">
+                Date
               </th>
             </tr>
           </thead>
@@ -79,13 +79,13 @@
                 #{{productDetailList.amount}}
               </td>
               <td class="px-6 py-5 whitespace-no-wrap">
-                {{productDetailList.date}}
-              </td>
-              <td class="px-6 py-5 whitespace-no-wrap">
                 {{productDetailList.bank}}
               </td>
               <td class="px-6 py-5 whitespace-no-wrap">
                 {{productDetailList.accountNumber}}
+              </td>
+              <td class="px-6 py-5 whitespace-no-wrap">
+                {{productDetailList.date}}
               </td>
             </tr>
 
