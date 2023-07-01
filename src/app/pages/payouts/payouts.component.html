@@ -37,11 +37,12 @@
             {{groupList.members}} members
           </td>
           <td class="px-6 py-5 whitespace-no-wrap text-gray-500">
-            Last Active:   {{groupList.lastActive}}
+            <span *ngIf="groupList.inProgress==true" class="bg-teal-100 py-1 px-3 text-default font-bold rounded-sm">In progress</span>
+            <span *ngIf="groupList.inProgress!=true">Last Active:   {{groupList.lastActive}}</span>
           </td>
           <td class="py-5 whitespace-no-wrap flex">
             <img class="mt-4 float-right" src="/assets/images/edit-payout.svg" width="17">
-            <img class="mt-4 ml-3 " src="/assets/images/delete-payout.svg" width="17">
+            <img class="mt-4 ml-4 " src="/assets/images/delete-payout.svg" width="17">
           </td>
         </tr>
 
@@ -73,7 +74,7 @@
                     focus:ring-default
                     focus:ring-0.5
                     focus:border-300
-                    transition duration-0 hover:duration-150
+                    transition duration-0 hover:duration-150 text-sm
               ">
           </div>
 
@@ -88,9 +89,13 @@
                 focus:ring-default
                 focus:ring-0.5
                 focus:border-300
-                transition duration-0 hover:duration-150">
-                <p class="mt-5 text-sm text-gray-400">Click to upload file</p>
-                <input id="dropzone-file" type="file" class="hidden" />
+                transition duration-0 hover:duration-150 text-sm">
+                <p *ngIf="!fileName" class="mt-5 text-sm text-gray-400">Click to upload file</p>
+                <p *ngIf="fileName" class="mt-5 text-sm">{{fileName}}</p>
+
+                <input id="dropzone-file" type="file" class="hidden"
+                  (change)="onFileSelected($event)"
+                />
               </label>
 
               <div class="absolute inset-y-2 right-0 pr-3 cursor-pointer flex items-center text-sm leading-5">
@@ -106,7 +111,7 @@
             <div class="mt-7">
               <label for="countries" class="font-bold mt-3 text-sm">Schedule</label>
               <div class="relative">
-                <select id="countries" class="webkit-appearance-none mt-3 form-control w-full pl-6 pr-6 rounded-md border border-gray-300
+                <select id="countries" class="webkit-appearance-none mt-3 form-control w-full pl-6 pr-6 rounded-md border border-gray-300 text-sm
                     focus:outline-none focus:border-default
                     focus:ring-default
                     focus:ring-0.5
@@ -125,7 +130,16 @@
 
             </div>
 
+             <!-- Action buttons  -->
+          <div class="mt-10">
+            <button type="button" (click)="[overlay = false, showCreatePayoutOverlay = false]" class="float-right bg-default pt-4 pb-4 pl-7 pr-7 shadow rounded-sm flex">
+              <span class="padding-1 text-white text-sm font-bold">Create</span>
+            </button>
 
+            <button type="button" (click)="[overlay = false, showCreatePayoutOverlay = false]" class="float-right border pt-4 pb-4 pl-7 pr-7 rounded-sm flex mr-5">
+              <span class="padding-1 text-sm font-bold">Cancel</span>
+            </button>
+          </div>
 
     </div>
 

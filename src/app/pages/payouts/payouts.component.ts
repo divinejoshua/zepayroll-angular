@@ -10,12 +10,17 @@ import { DataService } from 'src/app/core/services/data/data.service';
 })
 export class PayoutsComponent {
 
+  // API data items
   payoutGroupList : any
   isLoading : boolean
   isError : boolean
 
-  overlay : boolean = true
-  showCreatePayoutOverlay : boolean = true
+  // Overlay display
+  overlay : boolean = false
+  showCreatePayoutOverlay : boolean = false
+
+  // Selected file nam
+  fileName : string = ""
 
 
   // Constructor
@@ -55,6 +60,13 @@ export class PayoutsComponent {
   }
 
 
+  // Get the selected file name
+  onFileSelected(event : any) {
+    if(event.target.files.length > 0)
+     {
+      this.fileName = event.target.files[0].name
+     }
+   }
 
   ngOnInit() {
     this.onGetTransactions()
