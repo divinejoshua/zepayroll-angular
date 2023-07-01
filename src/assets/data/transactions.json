@@ -85,5 +85,29 @@
       "accountNumber": "1209792473"
     }
 
+  ],
+
+  "groupList": [
+    {
+      "profile": "/assets/images/group1-icon.svg",
+      "Name": "Main staff",
+      "Members": 45,
+      "inProgress": true,
+      "Last active": "0 days ago"
+    },
+    {
+      "profile": "/assets/images/group2-icon.svg",
+      "Name": "Agency staff",
+      "Members": 74,
+      "inProgress": false,
+      "Last active": "20 days ago"
+    },
+    {
+      "profile": "/assets/images/group3-icon.svg",
+      "Name": "Non tech staff",
+      "Members": 23,
+      "inProgress": false,
+      "Last active": "Yesterday"
+    }
   ]
 }
