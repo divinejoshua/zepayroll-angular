@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { DataService } from 'src/app/core/services/data/data.service';
+
 
 @Component({
   selector: 'app-payoutdetails',
@@ -12,13 +14,14 @@ export class PayoutdetailsComponent {
   payoutId: string = "";
 
   // Data from API
-  transactionsList : any
+  payoutDetailList : any
   isLoading : boolean
   isError : boolean
+  // DataService: any;
 
-  constructor(router: ActivatedRoute) {
+  constructor(private DataService : DataService, router: ActivatedRoute) {
 
-    this.transactionsList = []
+    this.payoutDetailList = []
     this.isLoading = false
     this.isError = false
 
@@ -27,8 +30,46 @@ export class PayoutdetailsComponent {
       this.payoutId = params["payoutId"];
     });
 
+  }
 
+
+
+  // On Submit
+  async onGetTransactions() {
+
+
+    try {
+      // asynchronous operation
+      await this.DataService.getTransactionList().subscribe(
+        //Success
+        (response: any) =>{
+          this.payoutDetailList = response
+          this.isLoading = false
+        },
+
+        // Error
+        (error: any) => {
+          console.log('Rrror  caught in component ')
+          this.isLoading = false
+          this.isError = true
+        },
+      )
+    }
+
+    finally {
+        // this will always get executed
+    }
 
   }
+
+
+
+  ngOnInit() {
+    this.onGetTransactions()
+  }
+
+
+
+
 
 }

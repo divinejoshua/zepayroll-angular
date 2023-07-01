@@ -38,7 +38,11 @@
 
     <!-- Transactions  -->
     <div class="mt-14 mb-10">
-     <p class="flex">  <img class="" src="/assets/images/recent-icon.svg" width="24"> <span class="mt-1 ml-2 text-sm font-bold text-gray-500">Recent transactions</span> </p>
+
+    <div class="clearfix">
+        <p class="float-left text-gray-500"> {{payoutId}} members</p>
+        <p class="float-right text-gray-500"> {{payoutId}} members</p>
+    </div>
 
      <!-- List  -->
       <div class="container mx-auto shadow-sm border mt-7">
@@ -63,29 +67,29 @@
             </tr>
           </thead>
 
-          Loop through the transaction list
-          <!-- <tbody *ngFor="let transaction of transactionsList.transactions; let index = index"> -->
+          <!-- Loop through the transaction list -->
+          <tbody *ngFor="let productDetailList of payoutDetailList.transactions; let index = index">
 
             <!-- Row 1 -->
-            <!-- <tr class="border-b">
+            <tr class="border-b">
               <td class="px-6 py-5 whitespace-no-wrap">
-                {{transaction.name}}
+                {{productDetailList.name}}
               </td>
               <td class="px-6 py-5 whitespace-no-wrap">
-                #{{transaction.amount}}
+                #{{productDetailList.amount}}
               </td>
               <td class="px-6 py-5 whitespace-no-wrap">
-                {{transaction.date}}
+                {{productDetailList.date}}
               </td>
               <td class="px-6 py-5 whitespace-no-wrap">
-                {{transaction.bank}}
+                {{productDetailList.bank}}
               </td>
               <td class="px-6 py-5 whitespace-no-wrap">
-                {{transaction.accountNumber}}
+                {{productDetailList.accountNumber}}
               </td>
             </tr>
 
-          </tbody> -->
+          </tbody>
 
         </table>
       </div>
