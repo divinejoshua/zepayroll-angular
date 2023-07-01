@@ -99,7 +99,7 @@ export class RegisterComponent {
 
         // Move to logi page
         this.router.navigate(
-          ['/home'],
+          ['/accounts/login'],
         );
 
       }, 2000);

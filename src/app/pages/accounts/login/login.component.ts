@@ -46,7 +46,8 @@ export class LoginComponent {
 
           // Move to home page
           this.router.navigate(
-            ['/accounts/login'],
+            ['/home'],
+            {replaceUrl:true}
           );
 
 
