@@ -89,25 +89,25 @@
 
   "groupList": [
     {
-      "profile": "/assets/images/group1-icon.svg",
-      "Name": "Main staff",
-      "Members": 45,
+      "src": "/assets/images/group1-icon.svg",
+      "name": "Main staff",
+      "members": 45,
       "inProgress": true,
-      "Last active": "0 days ago"
+      "lastActive": "0 days ago"
     },
     {
-      "profile": "/assets/images/group2-icon.svg",
-      "Name": "Agency staff",
-      "Members": 74,
+      "src": "/assets/images/group2-icon.svg",
+      "name": "Agency staff",
+      "members": 74,
       "inProgress": false,
-      "Last active": "20 days ago"
+      "lastActive": "20 days ago"
     },
     {
-      "profile": "/assets/images/group3-icon.svg",
-      "Name": "Non tech staff",
-      "Members": 23,
+      "src": "/assets/images/group3-icon.svg",
+      "name": "Non tech staff",
+      "members": 23,
       "inProgress": false,
-      "Last active": "Yesterday"
+      "lastActive": "Yesterday"
     }
   ]
 }

@@ -23,21 +23,21 @@
     <table class="min-w-full bg-white mt-7">
 
       <!-- Loop through payout group  -->
-      <tbody>
+      <tbody *ngFor="let groupList of payoutGroupList.groupList; let index = index">
 
-        <!-- Row 1 -->
+        <!-- Rows -->
         <tr class="border-b border-gray-100 cursor-pointer">
           <td class="px-6 py-5 whitespace-no-wrap">
-            <img class="" src="/assets/images/group1-icon.svg" width="45" >
+            <img class="" src="{{groupList.src}}" width="45">
           </td>
           <td class="px-6 py-5 whitespace-no-wrap font-bold">
-            Main staff
+            {{groupList.name}}
           </td>
           <td class="px-6 py-5 whitespace-no-wrap text-gray-500">
-            45 members
+            {{groupList.members}} members
           </td>
           <td class="px-6 py-5 whitespace-no-wrap text-gray-500">
-            Last Active:   20 days ago
+            Last Active:   {{groupList.lastActive}}
           </td>
           <td class="px-6 py-5 whitespace-no-wrap flex">
             <img class="mt-4 float-right" src="/assets/images/edit-payout.svg" width="17">
