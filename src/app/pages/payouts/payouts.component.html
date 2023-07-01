@@ -103,15 +103,27 @@
 
 
             <!-- Select scheldule  -->
+            <div class="mt-7">
+              <label for="countries" class="font-bold mt-3 text-sm">Schedule</label>
+              <div class="relative">
+                <select id="countries" class="webkit-appearance-none mt-3 form-control w-full pl-6 pr-6 rounded-md border border-gray-300
+                    focus:outline-none focus:border-default
+                    focus:ring-default
+                    focus:ring-0.5
+                    focus:border-300
+                    transition duration-0 hover:duration-150">
+                  <option value="monthly" selected>Monthly</option>
+                  <option value="daily">Daily</option>
+                  <option value="weekly">Weekly</option>
+                  <option value="yearly">Yearly</option>
+                </select>
 
-            <label for="countries" class="font-bold mt-3 text-sm">Select file</label>
-            <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-              <option selected>Choose a country</option>
-              <option value="US">United States</option>
-              <option value="CA">Canada</option>
-              <option value="FR">France</option>
-              <option value="DE">Germany</option>
-            </select>
+                <div class="absolute inset-y-2 right-0 pr-3 pt-1 cursor-pointer flex items-center text-sm leading-5">
+                  <img class="float-left mr-2 mt-3" src="/assets/images/payout-caret-icon.svg">
+              </div>
+              </div>
+
+            </div>
 
 
 
