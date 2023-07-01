@@ -10,48 +10,29 @@
   <!-- Main bar  -->
   <section class="mainbar mt-20 transition-page-bottom-top">
 
-    <!-- Dashboard Cards -->
-    <div class="grid grid-cols-3 gap-4">
-
-      <!-- Payouts  -->
-      <div class="border flex rounded-sm pt-7 pb-7 pl-5 pr-5">
-        <img class="" src="/assets/images/payout-card-icon.svg" width="45">
-        <div class="ml-7">
-          <p class="text-sm font-bold text-gray-500">Total Payouts</p>
-          <h2 class="mt-1 text-lg font-bold"># 56,349,600</h2>
-        </div>
-      </div>
-
-      <!-- Balance  -->
-      <div class="border flex rounded-sm pt-7 pb-7 pl-5 pr-5">
-        <img class="" src="/assets/images/balance-icon.svg" width="45">
-        <div class="ml-7">
-          <p class="text-sm font-bold text-gray-500">Total Balance</p>
-          <h2 class="mt-1 text-lg font-bold"># 23,456,700</h2>
-        </div>
-      </div>
-
-      <!-- Transactions  -->
-      <div class="border flex rounded-sm pt-7 pb-7 pl-5 pr-5">
-        <!-- <img class="" src="/assets/images/payout-card-icon.svg" width="45"> -->
-        <div class="ml-7">
-          <p class="text-sm font-bold text-gray-500">Total Transactions</p>
-          <h2 class="mt-1 text-lg font-bold">3,846</h2>
-        </div>
-      </div>
-
-    </div>
-
-
     <!-- Action buttons  -->
-    <div class="mt-10 flex">
-      <button type="button" class="bg-default pt-4 pb-4 pl-7 pr-7 shadow rounded-sm flex">
-        <img class="" src="/assets/images/plus-icon.svg" width="20"> <span class="padding-1 ml-2 text-white text-sm font-bold">Make a Payout</span>
-      </button>
+    <div class="clearfix">
+      <div class="flex float-left">
+          <button type="button" class="bg-default pt-4 pb-4 pl-7 pr-7 shadow rounded-sm flex">
+            <img class="" src="/assets/images/payout-logo.svg" width="20"> <span class="padding-1 ml-2 text-white text-sm font-bold">Trigger payout</span>
+          </button>
 
-      <button type="button" class="border pt-4 pb-4 pl-7 pr-7 rounded-sm flex ml-5">
-        <img class="" src="/assets/images/fund-icon.svg" width="20"> <span class="padding-1 ml-2 text-sm font-bold">Fund wallet</span>
-      </button>
+          <button type="button" class="border pt-4 pb-4 pl-7 pr-7 rounded-sm flex ml-5">
+            <img class="" src="/assets/images/plus-dark.svg" width="20"> <span class="padding-1 ml-2 text-sm font-bold">Add to List</span>
+          </button>
+      </div>
+
+      <div class="float-right flex">
+        <img class="mr-2" src="/assets/images/clock.svg" width="25">
+        <img class="mr-5" src="/assets/images/in-progress.svg" width="100">
+        <!-- <span class="bg-teal-100 px-3 text-default font-bold rounded-sm">In progress</span> -->
+        <button type="button" class="mr-5 flex border border-gray-300 pt-3 pb-3 pl-5 pr-5 rounded-sm text-sm font-bold">
+          <img class="mr-3" src="/assets/images/cog.svg" width="15">
+          Settings
+        </button>
+      </div>
+
+
     </div>
 
 
