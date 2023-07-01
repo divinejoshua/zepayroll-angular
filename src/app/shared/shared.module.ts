@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { HeaderComponent } from './header/header.component';
+import { CreatePayoutComponent } from './create-payout/create-payout.component';
 
 
 
 @NgModule({
   declarations: [
     SidebarComponent,
-    HeaderComponent
+    HeaderComponent,
+    CreatePayoutComponent
   ],
   imports: [
     CommonModule,
@@ -18,6 +20,7 @@ import { HeaderComponent } from './header/header.component';
   exports:[
     SidebarComponent,
     HeaderComponent,
+    CreatePayoutComponent,
   ]
 })
 export class SharedModule { }
