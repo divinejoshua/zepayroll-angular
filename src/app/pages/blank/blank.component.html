@@ -1,6 +1,6 @@
 <div class="mx-auto max-w-lg mt-40">
 
-<div class="mb-10 text-lg">Current Count: {{ count$ | async }}</div>
+<div class="mb-10 text-lg">Current Count: {{ count$ | async | number:'1.0-0'}}</div>
 
 
 <button id="increment" (click)="increment()" class="bg-green-500 px-5 py-3 text-white">Increment</button>
