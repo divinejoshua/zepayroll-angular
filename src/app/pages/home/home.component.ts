@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/core/services/data/data.service';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { increment, decrement, reset } from 'src/app/core/store/actions/counter.action';
+
 
 @Component({
   selector: 'app-home',
@@ -13,12 +17,15 @@ export class HomeComponent {
     isLoading : boolean
     isError : boolean
 
+    count$: Observable<number>;
+
 
     // Constructor
-    constructor(private DataService : DataService, private router: Router){
+    constructor(private DataService : DataService, private router: Router, private store: Store<{ count: number }>){
       this.transactionsList = []
       this.isLoading = false
       this.isError = false
+      this.count$ = store.select('count');
     }
 
 
