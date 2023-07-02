@@ -12,7 +12,6 @@ import { RegisterComponent } from './pages/accounts/register/register.component'
 import { SharedModule } from './shared/shared.module';
 import { PayoutsComponent } from './pages/payouts/payouts.component';
 import { PayoutdetailsComponent } from './pages/payoutdetails/payoutdetails.component';
-import { StoreModule } from '@ngrx/store';
 // import { reducers, metaReducers } from './reducers';
 
 @NgModule({
@@ -31,10 +30,7 @@ import { StoreModule } from '@ngrx/store';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    StoreModule.forRoot({}, {}),
-    // StoreModule.forRoot(reducers, {
-    //   metaReducers
-    // }),
+
   ],
   providers: [],
   bootstrap: [AppComponent]
