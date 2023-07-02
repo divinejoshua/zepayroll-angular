@@ -1,1 +1,11 @@
-<p>blank works!</p>
+<div class="mx-auto max-w-lg mt-40">
+
+<div class="mb-10 text-lg">Current Count: {{ count$ | async }}</div>
+
+
+<button id="increment" (click)="increment()" class="bg-green-500 px-5 py-3 text-white">Increment</button>
+
+<button id="decrement" (click)="decrement()" class="bg-red-500 px-5 py-3 text-white">Decrement</button>
+
+<button id="reset" (click)="reset()" class="bg-blue-500 px-5 py-3 text-white">Reset Counter</button>
+</div>

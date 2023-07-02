@@ -10,4 +10,25 @@ import { increment, decrement, reset } from 'src/app/core/store/actions/counter.
 })
 export class BlankComponent {
 
+  count$: Observable<number>;
+
+  constructor(private store: Store<{ count: number }>) {
+    this.count$ = store.select('count');
+  }
+
+
+
+  increment() {
+    this.store.dispatch(increment());
+  }
+
+  decrement() {
+    this.store.dispatch(decrement());
+  }
+
+  reset() {
+    this.store.dispatch(reset());
+  }
+
+
 }
