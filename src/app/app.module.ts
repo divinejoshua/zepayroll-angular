@@ -13,6 +13,7 @@ import { RegisterComponent } from './pages/accounts/register/register.component'
 import { SharedModule } from './shared/shared.module';
 import { PayoutsComponent } from './pages/payouts/payouts.component';
 import { PayoutdetailsComponent } from './pages/payoutdetails/payoutdetails.component';
+import { BlankComponent } from './pages/blank/blank.component';
 // import { reducers, metaReducers } from './reducers';
 
 @NgModule({
@@ -23,6 +24,7 @@ import { PayoutdetailsComponent } from './pages/payoutdetails/payoutdetails.comp
     RegisterComponent,
     PayoutsComponent,
     PayoutdetailsComponent,
+    BlankComponent,
   ],
   imports: [
     BrowserModule,
