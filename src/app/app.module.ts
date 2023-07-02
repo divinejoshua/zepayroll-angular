@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+// import { StoreModule } from '@ngrx/store';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
@@ -11,6 +12,8 @@ import { RegisterComponent } from './pages/accounts/register/register.component'
 import { SharedModule } from './shared/shared.module';
 import { PayoutsComponent } from './pages/payouts/payouts.component';
 import { PayoutdetailsComponent } from './pages/payoutdetails/payoutdetails.component';
+import { StoreModule } from '@ngrx/store';
+// import { reducers, metaReducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -28,6 +31,10 @@ import { PayoutdetailsComponent } from './pages/payoutdetails/payoutdetails.comp
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
+    StoreModule.forRoot({}, {}),
+    // StoreModule.forRoot(reducers, {
+    //   metaReducers
+    // }),
   ],
   providers: [],
   bootstrap: [AppComponent]
