@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-// import { StoreModule } from '@ngrx/store';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './core/store/reducers/counter.reducer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
@@ -30,6 +31,7 @@ import { PayoutdetailsComponent } from './pages/payoutdetails/payoutdetails.comp
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
+    StoreModule.forRoot({ count: counterReducer })
 
   ],
   providers: [],
