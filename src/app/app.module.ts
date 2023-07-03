@@ -14,7 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { PayoutsComponent } from './pages/payouts/payouts.component';
 import { PayoutdetailsComponent } from './pages/payoutdetails/payoutdetails.component';
 import { BlankComponent } from './pages/blank/blank.component';
-// import { reducers, metaReducers } from './reducers';
+import { TestComponent } from './pages/test/test.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +25,7 @@ import { BlankComponent } from './pages/blank/blank.component';
     PayoutsComponent,
     PayoutdetailsComponent,
     BlankComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,
