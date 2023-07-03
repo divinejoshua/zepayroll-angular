@@ -6,6 +6,7 @@ import { LoginComponent } from './pages/accounts/login/login.component';
 import { RegisterComponent } from './pages/accounts/register/register.component';
 import { PayoutdetailsComponent } from './pages/payoutdetails/payoutdetails.component';
 import { BlankComponent } from './pages/blank/blank.component';
+import { TestComponent } from './pages/test/test.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
 
 
   { path: 'blank', title: 'Blank - Zepayroll', component: BlankComponent },
+  { path: 'test', title: 'test - Zepayroll', component: TestComponent },
   // { path: '**', component: PageNotFoundComponent },
 ];
 
