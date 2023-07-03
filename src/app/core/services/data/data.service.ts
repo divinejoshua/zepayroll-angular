@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs'
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class DataService {
 
 
   // Get search results
-  getTransactionList() {
+  getTransactionList() : Observable<any[]> {
 
     this.transactionList = this.http.get("assets/data/transactions.json")
 
