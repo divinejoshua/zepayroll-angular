@@ -15,6 +15,7 @@ import { PayoutsComponent } from './pages/payouts/payouts.component';
 import { PayoutdetailsComponent } from './pages/payoutdetails/payoutdetails.component';
 import { BlankComponent } from './pages/blank/blank.component';
 import { TestComponent } from './pages/test/test.component';
+import { reducers, metaReducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,11 @@ import { TestComponent } from './pages/test/test.component';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    StoreModule.forRoot({ count: counterReducer })
+    // StoreModule.forRoot({ count: counterReducer }),
+    // StoreModule.forRoot({}, {}),
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    })
 
   ],
   providers: [],
