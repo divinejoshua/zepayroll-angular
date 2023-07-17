@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { counterReducer } from './core/store/reducers/counter.reducer';
+import { counterReducer } from './core/store/counter/counter.reducer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './pages/home/home.component';
@@ -15,7 +15,6 @@ import { PayoutsComponent } from './pages/payouts/payouts.component';
 import { PayoutdetailsComponent } from './pages/payoutdetails/payoutdetails.component';
 import { BlankComponent } from './pages/blank/blank.component';
 import { TestComponent } from './pages/test/test.component';
-import { reducers, metaReducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -35,11 +34,11 @@ import { reducers, metaReducers } from './reducers';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    // StoreModule.forRoot({ count: counterReducer }),
-    // StoreModule.forRoot({}, {}),
-    StoreModule.forRoot(reducers, {
-      metaReducers
-    })
+    StoreModule.forRoot({ counter: counterReducer }),
+    // StoreModule.forRoot(reducers, { metaReducers }),
+    // StoreModule.forRoot(reducers, {
+    //   metaReducers
+    // })
 
   ],
   providers: [],

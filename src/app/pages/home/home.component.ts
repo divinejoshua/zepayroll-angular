@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { DataService } from 'src/app/core/services/data/data.service';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { increment, decrement, reset } from 'src/app/core/store/actions/counter.action';
+import { increment, decrement, reset } from 'src/app/core/store/counter/counter.action';
 
 
 @Component({
