@@ -28,8 +28,8 @@ export class BlankComponent {
     this.store.dispatch(decrement());
   }
 
-  reset() {
-    this.store.dispatch(reset());
+  reset(resetValue: number) {
+    this.store.dispatch(reset({resetValue }));
   }
 
 

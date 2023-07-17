@@ -4,6 +4,8 @@ import { DataService } from 'src/app/core/services/data/data.service';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { increment, decrement, reset } from 'src/app/core/store/counter/counter.action';
+import { AppState } from 'src/app/core/store/app.state';
+import { selectAllCounter } from 'src/app/core/store/counter/counter.selectors';
 
 
 @Component({
@@ -21,11 +23,11 @@ export class HomeComponent {
 
 
     // Constructor
-    constructor(private DataService : DataService, private router: Router, private store: Store<{ count: number }>){
+    constructor(private DataService : DataService, private router: Router, private store: Store<AppState>){
       this.transactionsList = []
       this.isLoading = false
       this.isError = false
-      this.count$ = store.select('count');
+      this.count$ = store.select(selectAllCounter);
     }
 
 

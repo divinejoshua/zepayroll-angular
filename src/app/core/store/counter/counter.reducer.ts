@@ -14,18 +14,27 @@ export const initialState : CounterState = {
 const _counterReducer = createReducer(initialState,
 
   // Increment function
-  on(increment, function(state) : any {
-    return state.counterValue + 1;
+  on(increment, function(state) {
+    return {
+      ...state,
+      counterValue: state.counterValue + 1
+    };
   }),
 
   //Decrement function
-  on(decrement, function(state) : any {
-    return state.counterValue - 1;
+  on(decrement, function(state) {
+    return {
+      ...state,
+      counterValue: state.counterValue - 1
+    };
   }),
 
-  // Reset counter
-  on(reset, function(state) : any {
-    return state.counterValue =0;
+  // Reset counter to an updated value,
+  on(reset, function(state, { resetValue }) {
+    return {
+      ...state,
+      counterValue: resetValue
+    };
   }),
 );
 
