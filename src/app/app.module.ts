@@ -15,6 +15,7 @@ import { PayoutsComponent } from './pages/payouts/payouts.component';
 import { PayoutdetailsComponent } from './pages/payoutdetails/payoutdetails.component';
 import { BlankComponent } from './pages/blank/blank.component';
 import { TestComponent } from './pages/test/test.component';
+import { transactionsReducer } from './core/store/transactions/transactions.reducer';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { TestComponent } from './pages/test/test.component';
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    StoreModule.forRoot({ counter: counterReducer }),
+    StoreModule.forRoot({ counter: counterReducer, transactions: transactionsReducer  }),
     // StoreModule.forRoot(reducers, { metaReducers }),
     // StoreModule.forRoot(reducers, {
     //   metaReducers
