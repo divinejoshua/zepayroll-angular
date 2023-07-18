@@ -3,9 +3,10 @@ import { Router } from '@angular/router';
 import { DataService } from 'src/app/core/services/data/data.service';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { increment, decrement, reset } from 'src/app/core/store/counter/counter.action';
 import { AppState } from 'src/app/core/store/app.state';
 import { selectAllCounter } from 'src/app/core/store/counter/counter.selectors';
+import { selectAllTransactions } from 'src/app/core/store/transactions/transactions.selectors';
+import { getTransactionList } from 'src/app/core/store/transactions/transactions.actions';
 
 
 @Component({
@@ -15,7 +16,7 @@ import { selectAllCounter } from 'src/app/core/store/counter/counter.selectors';
 })
 export class HomeComponent {
 
-    transactionsList : any
+    transactionsList$ : Observable<any>
     isLoading : boolean
     isError : boolean
 
@@ -24,40 +25,48 @@ export class HomeComponent {
 
     // Constructor
     constructor(private DataService : DataService, private router: Router, private store: Store<AppState>){
-      this.transactionsList = []
       this.isLoading = false
       this.isError = false
       this.count$ = store.select(selectAllCounter);
+      this.transactionsList$ = store.select(selectAllTransactions);
     }
 
 
    // On Submit
-   async onGetTransactions() {
 
+  onGetTransactions() {
+    this.store.dispatch(getTransactionList());
 
-    try {
-      // asynchronous operation
-      await this.DataService.getTransactionList().subscribe(
-        //Success
-        (response: any) =>{
-          this.transactionsList = response
-          this.isLoading = false
-        },
-
-        // Error
-        (error: any) => {
-          console.log('Rrror  caught in component ')
-          this.isLoading = false
-          this.isError = true
-        },
-      )
-    }
-
-    finally {
-        // this will always get executed
-    }
-
+    console.log(this.transactionsList$)
   }
+
+
+  //  async onGetTransactions() {
+
+
+  //   try {
+  //     // asynchronous operation
+  //     await this.DataService.getTransactionList().subscribe(
+  //       //Success
+  //       (response: any) =>{
+  //         this.transactionsList = response
+  //         this.isLoading = false
+  //       },
+
+  //       // Error
+  //       (error: any) => {
+  //         console.log('Rrror  caught in component ')
+  //         this.isLoading = false
+  //         this.isError = true
+  //       },
+  //     )
+  //   }
+
+  //   finally {
+  //       // this will always get executed
+  //   }
+
+  // }
 
 
 

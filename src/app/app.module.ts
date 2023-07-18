@@ -16,6 +16,8 @@ import { PayoutdetailsComponent } from './pages/payoutdetails/payoutdetails.comp
 import { BlankComponent } from './pages/blank/blank.component';
 import { TestComponent } from './pages/test/test.component';
 import { transactionsReducer } from './core/store/transactions/transactions.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { TransactionsEffects } from './core/store/transactions/transactions.effects';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { transactionsReducer } from './core/store/transactions/transactions.redu
     ReactiveFormsModule,
     SharedModule,
     StoreModule.forRoot({ counter: counterReducer, transactions: transactionsReducer  }),
+    EffectsModule.forRoot([TransactionsEffects]),
     // StoreModule.forRoot(reducers, { metaReducers }),
     // StoreModule.forRoot(reducers, {
     //   metaReducers

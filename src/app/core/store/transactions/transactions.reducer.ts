@@ -3,14 +3,14 @@ import { getTransactionList, getGroupList, getTransactionListSuccess, getTransac
 import { DataService } from '../../services/data/data.service';
 
 
-export interface DataState {
+export interface TransactionState {
   dataListValue: [];
   error : boolean;
   isLoading: boolean;
 }
 
 // initial value of the state
-export const initialState : DataState = {
+export const initialState : TransactionState = {
   dataListValue: [],
   error: false,
   isLoading: false,
