@@ -4,14 +4,16 @@ import { DataService } from '../../services/data/data.service';
 
 
 export interface TransactionState {
-  dataListValue: any;
+  transactionListValue: any;
+  groupListValue: any;
   error : boolean;
   isLoading: boolean;
 }
 
 // initial value of the state
 export const initialState : TransactionState = {
-  dataListValue: [],
+  transactionListValue: [],
+  groupListValue: [],
   error: false,
   isLoading: false,
 };
@@ -33,7 +35,8 @@ const _transactionsReducer = createReducer(initialState,
   on(getTransactionListSuccess, function(state, { dataList, error }) {
     return {
       ...state,
-      dataListValue: dataList.transactions, //Get transactions from data list transactions
+      transactionListValue: dataList.transactions, //Get transactions from data list transactions
+      groupListValue: dataList.groupList,
       error: error,
       isLoading: false,
     };
