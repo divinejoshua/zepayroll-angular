@@ -6,7 +6,6 @@ import { Observable } from 'rxjs';
 import { AppState } from 'src/app/core/store/app.state';
 import { selectAllCounter } from 'src/app/core/store/counter/counter.selectors';
 import { selectAllTransactions } from 'src/app/core/store/transactions/transactions.selectors';
-import { getTransactionList } from 'src/app/core/store/transactions/transactions.actions';
 
 
 @Component({
@@ -31,13 +30,6 @@ export class HomeComponent {
       this.transactionsList$ = store.select(selectAllTransactions);
     }
 
-
-   // On Submit
-  onGetTransactions() {
-
-    // Get transactions list from store
-    this.store.dispatch(getTransactionList());
-  }
 
 
   //  async onGetTransactions() {
@@ -70,7 +62,7 @@ export class HomeComponent {
 
 
   ngOnInit() {
-    this.onGetTransactions()
+    // this.onGetTransactions()
   }
 
 
