@@ -4,7 +4,7 @@ import { DataService } from '../../services/data/data.service';
 
 
 export interface TransactionState {
-  dataListValue: [];
+  dataListValue: any;
   error : boolean;
   isLoading: boolean;
 }
@@ -33,7 +33,7 @@ const _transactionsReducer = createReducer(initialState,
   on(getTransactionListSuccess, function(state, { dataList, error }) {
     return {
       ...state,
-      dataListValue: dataList,
+      dataListValue: dataList.transactions,
       error: error,
       isLoading: false,
     };
