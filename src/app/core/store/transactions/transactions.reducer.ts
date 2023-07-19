@@ -33,7 +33,7 @@ const _transactionsReducer = createReducer(initialState,
   on(getTransactionListSuccess, function(state, { dataList, error }) {
     return {
       ...state,
-      dataListValue: dataList.transactions,
+      dataListValue: dataList.transactions, //Get transactions from data list transactions
       error: error,
       isLoading: false,
     };

@@ -33,11 +33,10 @@ export class HomeComponent {
 
 
    // On Submit
-
   onGetTransactions() {
-    this.store.dispatch(getTransactionList());
 
-    console.log(this.transactionsList$)
+    // Get transactions list from store
+    this.store.dispatch(getTransactionList());
   }
 
 
