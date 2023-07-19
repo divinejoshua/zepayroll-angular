@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { getTransactionList, getGroupList, getTransactionListSuccess, getTransactionListFailure } from './transactions.actions';
+import { getTransactionList, getTransactionListSuccess, getTransactionListFailure } from './transactions.actions';
 import { DataService } from '../../services/data/data.service';
 
 
