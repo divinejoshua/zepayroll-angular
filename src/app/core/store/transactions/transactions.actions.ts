@@ -15,3 +15,15 @@ export const getTransactionListFailure = createAction(
   '[Get Transactions API] Load Failure',
   props<{ error: boolean }>()
 );
+
+// Get group list on success
+export const getGroupListSuccess = createAction(
+  '[Get Grouplist API] Load Success',
+  props<{ dataList: any, error : boolean }>()
+);
+
+// Get group list on failure
+export const getGroupListFailure = createAction(
+  '[Get Grouplist API] Load Failure',
+  props<{ error: boolean }>()
+);
