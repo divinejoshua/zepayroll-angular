@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { DataService } from 'src/app/core/services/data/data.service';
+import { AppState } from 'src/app/core/store/app.state';
+import { selectAllTransactions } from 'src/app/core/store/transactions/transactions.selectors';
 
 
 @Component({
@@ -14,14 +18,14 @@ export class PayoutdetailsComponent {
   payoutId: string = "";
 
   // Data from API
-  payoutDetailList : any
+  payoutDetailList$ : Observable<any>
   isLoading : boolean
   isError : boolean
   // DataService: any;
 
-  constructor(private DataService : DataService, router: ActivatedRoute) {
+  constructor(private DataService : DataService, router: ActivatedRoute, private store: Store<AppState>) {
 
-    this.payoutDetailList = []
+    this.payoutDetailList$ = store.select(selectAllTransactions);
     this.isLoading = false
     this.isError = false
 
@@ -34,38 +38,9 @@ export class PayoutdetailsComponent {
 
 
 
-  // On Submit
-  async onGetTransactions() {
-
-
-    try {
-      // asynchronous operation
-      await this.DataService.getTransactionList().subscribe(
-        //Success
-        (response: any) =>{
-          this.payoutDetailList = response
-          this.isLoading = false
-        },
-
-        // Error
-        (error: any) => {
-          console.log('Rrror  caught in component ')
-          this.isLoading = false
-          this.isError = true
-        },
-      )
-    }
-
-    finally {
-        // this will always get executed
-    }
-
-  }
-
-
 
   ngOnInit() {
-    this.onGetTransactions()
+    //
   }
 
 

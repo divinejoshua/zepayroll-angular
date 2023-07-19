@@ -68,7 +68,7 @@
           </thead>
 
           <!-- Loop through the transaction list -->
-          <tbody *ngFor="let productDetailList of payoutDetailList.transactions; let index = index">
+          <tbody *ngFor="let productDetailList of payoutDetailList$ | async; let index = index">
 
             <!-- Row 1 -->
             <tr class="border-b">
