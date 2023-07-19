@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from 'src/app/core/services/data/data.service';
+import { Observable } from 'rxjs';
+import { AppState } from 'src/app/core/store/app.state';
+import { Store } from '@ngrx/store';
+import { selectAllGroupList } from 'src/app/core/store/transactions/transactions.selectors';
+
 
 
 @Component({
@@ -11,7 +16,7 @@ import { DataService } from 'src/app/core/services/data/data.service';
 export class PayoutsComponent {
 
   // API data items
-  payoutGroupList : any
+  payoutGroupList$ : Observable<any>
   isLoading : boolean
   isError : boolean
 
@@ -24,40 +29,12 @@ export class PayoutsComponent {
 
 
   // Constructor
-  constructor(private DataService : DataService, private router: Router){
-    this.payoutGroupList = []
+  constructor(private DataService : DataService, private router: Router, private store: Store<AppState>){
+    this.payoutGroupList$ = store.select(selectAllGroupList);
     this.isLoading = false
     this.isError = false
   }
 
-
-   // On Submit
-   async onGetTransactions() {
-
-
-    try {
-      // asynchronous operation
-      await this.DataService.getTransactionList().subscribe(
-        //Success
-        (response: any) =>{
-          this.payoutGroupList = response
-          this.isLoading = false
-        },
-
-        // Error
-        (error: any) => {
-          console.log('Rrror  caught in component ')
-          this.isLoading = false
-          this.isError = true
-        },
-      )
-    }
-
-    finally {
-        // this will always get executed
-    }
-
-  }
 
 
   // Get the selected file name
@@ -69,7 +46,7 @@ export class PayoutsComponent {
    }
 
   ngOnInit() {
-    this.onGetTransactions()
+    //
   }
 
 

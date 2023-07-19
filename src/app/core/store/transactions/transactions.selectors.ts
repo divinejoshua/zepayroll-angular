@@ -15,5 +15,5 @@ export const selectAllTransactions = createSelector(
 //Select all grouplist
 export const selectAllGroupList = createSelector(
   selectTransactions,
-  (state: TransactionState) => state.transactionListValue
+  (state: TransactionState) => state.groupListValue
 );

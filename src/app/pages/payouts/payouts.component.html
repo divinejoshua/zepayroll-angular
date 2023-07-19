@@ -23,7 +23,7 @@
     <table class="min-w-full bg-white mt-7">
 
       <!-- Loop through payout group  -->
-      <tbody *ngFor="let groupList of payoutGroupList.groupList; let index = index" class="min-w-full">
+      <tbody *ngFor="let groupList of payoutGroupList$ | async; let index = index" class="min-w-full">
 
         <!-- Rows -->
           <tr routerLink="/payouts/{{groupList.members}}" class="border-b border-gray-100 cursor-pointer w-full">
