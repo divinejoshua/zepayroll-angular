@@ -78,6 +78,9 @@ export class LoginComponent {
                 let access_token = response.access_token
                 this.store.dispatch(saveAccessToken({ access_token }));
 
+                //Get the user details
+                this.AuthService.getLogggedInUser()
+
 
                 // Move to home page
                 this.router.navigate(

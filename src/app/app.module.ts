@@ -20,6 +20,7 @@ import { transactionsReducer } from './core/store/transactions/transactions.redu
 import { authReducer } from './core/store/auth/auth.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { TransactionsEffects } from './core/store/transactions/transactions.effects';
+import { AuthInterceptorProvider } from './core/interceptors/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -48,13 +49,8 @@ import { TransactionsEffects } from './core/store/transactions/transactions.effe
     StoreDevtoolsModule.instrument({
       maxAge: 10
     })
-    // StoreModule.forRoot(reducers, { metaReducers }),
-    // StoreModule.forRoot(reducers, {
-    //   metaReducers
-    // })
-
   ],
-  providers: [],
+  providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

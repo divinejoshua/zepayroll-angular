@@ -31,27 +31,7 @@ export class AppComponent {
   }
 
   async getLoggedInUserDetails() {
-
-    try {
-
-    // Get logged in user details
-      await this.AuthService.getLogggedInUser().subscribe(
-        //Success
-        (response: any) => {
-          let userDetails = response;
-          this.store.dispatch(saveUserDetails({ userDetails }));
-        },
-
-        // Error
-        (error: any) => {
-
-        }
-      )
-    }
-
-    finally {
-        // this will always get executed
-    }
+    await this.AuthService.getLogggedInUser()
   }
 
 

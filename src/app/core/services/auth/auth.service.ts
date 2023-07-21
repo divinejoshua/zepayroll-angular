@@ -2,6 +2,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs'
 import { environment } from 'src/environments/environment.development';
+import { saveUserDetails } from '../../store/auth/auth.actions';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../store/app.state';
 
 
 @Injectable({
@@ -9,7 +12,7 @@ import { environment } from 'src/environments/environment.development';
 })
 export class AuthService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private store: Store<AppState>) { }
 
   // Base Url from environment variable
 
@@ -25,13 +28,14 @@ export class AuthService {
   // Get the logged in user details
   getLogggedInUser() : Observable<object> {
 
-    const headers = new HttpHeaders({
-      'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjg5OTYwNTk3LCJpYXQiOjE2ODk5NjA1MzcsImp0aSI6IjU2YmRiZmJhZDQ5OTQwMjNiZWU4MThkZWFkZDQ2ZDBlIiwidXNlcl9pZCI6MX0.rDIvdaDzjyUF8UsnkSqtdMpsqYx0ijSoJiEeFCP_SuQ', // Replace with your actual authorization header value
+    this.response = this.http.get("http://127.0.0.1:8000/accounts/user/" )
+
+    //Save the user details to state
+    .subscribe((response) => {
+      let userDetails = response
+      this.store.dispatch(saveUserDetails({ userDetails }))
     });
 
-    const options = { headers: headers };
-
-    this.response = this.http.get("http://127.0.0.1:8000/accounts/user/", options );
     return  this.response
   }
 
