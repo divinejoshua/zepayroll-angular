@@ -12,6 +12,7 @@ import { catchError } from 'rxjs/operators';
 import { selectAllAccessToken } from '../store/auth/auth.selectors';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/app.state';
+import { saveAccessToken } from '../store/auth/auth.actions';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
@@ -45,14 +46,19 @@ export class AuthInterceptor implements HttpInterceptor {
 
       // Check if the request status code
       catchError((error: HttpErrorResponse) => {
-        if (error.status === 401) {
-          // Handle 401 Unauthorized error here
-          // For example, you might redirect to the login page or perform a logout action.
-          console.log('Unauthorized: Redirect to login page or perform logout.');
+        if (error.status === 401 ) {
+
+          // Set the access token to an empty string in NGRX
+          let access_token = ""
+          this.store.dispatch(saveAccessToken({ access_token }));
+
         }
 
+
+
         // Pass the error to the calling code (components/services) so they can handle it further.
-        return throwError(error);
+        // return throwError(error);
+        return next.handle(request)
       })
     );
   }
