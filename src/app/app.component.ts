@@ -25,9 +25,15 @@ export class AppComponent {
     this.store.dispatch(getTransactionList());
   }
 
+  getLoggedInUserDetails() {
+    // Get transactions list from store
+    this.store.dispatch(getTransactionList());
+  }
+
 
   ngOnInit() {
     this.onAppLoad()
     this.onGetTransactions()
+    this.getLoggedInUserDetails()
   }
 }
