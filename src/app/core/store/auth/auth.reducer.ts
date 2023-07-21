@@ -1,5 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
-import { saveAccessToken, getNewAccessToken, getNewAccessTokenSuccess, getNewAccessTokenFailure } from './auth.actions';
+import { saveAccessToken, saveUserDetails, getNewAccessToken, getNewAccessTokenSuccess, getNewAccessTokenFailure } from './auth.actions';
 import { AuthService } from '../../services/auth/auth.service';
 
 
@@ -26,6 +26,15 @@ const _authReducer = createReducer(initialState,
       access_token: access_token, //Save the access token
     };
   }),
+
+
+    // Save the access token
+    on(saveUserDetails, function(state, { userDetails }) {
+      return {
+        ...state,
+        userDetails: userDetails, //Save the access token
+      };
+    }),
 
 
 
