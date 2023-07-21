@@ -81,6 +81,9 @@ export class LoginComponent {
                 //Get the user details
                 this.AuthService.getLogggedInUser()
 
+                //Store refresh token in local storage
+                localStorage.setItem("refresh_token", response.refresh_token);
+
 
                 // Move to home page
                 this.router.navigate(

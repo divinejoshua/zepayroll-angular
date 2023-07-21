@@ -39,4 +39,11 @@ export class AuthService {
     return  this.response
   }
 
+
+    //Get new access token
+    getNewAccessToken(bodyParams: object) : Observable<object> {
+      this.response = this.http.post("http://127.0.0.1:8000/accounts/auth/login/", bodyParams);
+      return  this.response
+    }
+
 }
