@@ -17,7 +17,7 @@ export class AppComponent {
   initialLoading : boolean = true;
 
   constructor(private store: Store<AppState>, private AuthService:AuthService,){
-    this.getLoggedInUserDetails()
+    this.getAuthorisation()
   }
 
   onAppLoad (){
@@ -30,9 +30,9 @@ export class AppComponent {
     this.store.dispatch(getTransactionList());
   }
 
-  // Get logged in user details
-  async getLoggedInUserDetails() {
-    this.AuthService.getLogggedInUser()
+  // Get new access token logged in user details
+  async getAuthorisation() {
+    this.AuthService.getNewAccessToken()
   }
 
 

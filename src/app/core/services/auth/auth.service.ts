@@ -48,10 +48,13 @@ export class AuthService {
         'refresh': localStorage.getItem('refresh_token')
       }
       this.response = this.http.post("http://127.0.0.1:8000/accounts/auth/token/refresh/", bodyParams)
-      .subscribe((response) => {
+      .subscribe((response: any) => {
 
         // Get logged in user details function
-        this.getLogggedInUser()
+        if(response.status === 200){
+          this.getLogggedInUser()
+
+        }
       });
       return  this.response
     }
