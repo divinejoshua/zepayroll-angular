@@ -40,9 +40,18 @@ export class AuthService {
   }
 
 
-    //Get new access token
-    getNewAccessToken(bodyParams: object) : Observable<object> {
-      this.response = this.http.post("http://127.0.0.1:8000/accounts/auth/login/", bodyParams);
+    //Get new access token from the refresh token
+    getNewAccessToken() : Observable<object> {
+
+      // Set the refresh token as the body parameter
+      const bodyParams = {
+        'refresh': localStorage.getItem('refresh_token')
+      }
+      this.response = this.http.post("http://127.0.0.1:8000/accounts/auth/token/refresh/", bodyParams)
+      .subscribe((response) => {
+        let userDetails = response
+        this.store.dispatch(saveUserDetails({ userDetails }))
+      });
       return  this.response
     }
 
