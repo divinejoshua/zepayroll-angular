@@ -17,10 +17,15 @@ export class AuthService {
 
 
   //Send login request
-  sendLoginCredentials(bodyParams: object) : Observable<any[]> {
+  sendLoginCredentials(bodyParams: object) : Observable<object> {
     this.response = this.http.post("http://127.0.0.1:8000/accounts/auth/login/", bodyParams);
     return  this.response
   }
 
+  // Get the logged in user details
+  getLogggedInUser() : Observable<object> {
+    this.response = this.http.get("http://127.0.0.1:8000/accounts/user");
+    return  this.response
+  }
 
 }

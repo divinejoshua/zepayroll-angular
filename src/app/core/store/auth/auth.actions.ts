@@ -1,7 +1,7 @@
 import { createAction, props } from '@ngrx/store';
 
 //Declare the actions
-export const saveAccessToken = createAction('[Authentication] Save access token to store', props<{ access_token:string}>);
+export const saveAccessToken = createAction('[Authentication] Save access token to store', props<{ access_token:string}>());
 
 export const getNewAccessToken = createAction('[Authentication] Get a new access token vie refresh token');
 

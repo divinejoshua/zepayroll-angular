@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
 import { AuthService } from 'src/app/core/services/auth/auth.service';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/core/store/app.state';
+import { saveAccessToken } from 'src/app/core/store/auth/auth.actions';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +29,7 @@ export class LoginComponent {
 
     });
 
-    constructor(private router: Router, private AuthService:AuthService){}
+    constructor(private router: Router, private AuthService:AuthService, public store: Store<AppState>){}
 
     // onSubmit form
     onSubmit() :void {
@@ -70,7 +73,12 @@ export class LoginComponent {
               (response: any) => {
                 this.successMessage = "Login successful";
                 this.isLoading = false;
-                // console.log(response.access_token)
+
+                //Save the access token to auth store
+                let access_token = response.access_token
+                this.store.dispatch(saveAccessToken({ access_token }));
+
+
                 // Move to home page
                 this.router.navigate(
                   ['/home'],

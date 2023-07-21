@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { counterReducer } from './core/store/counter/counter.reducer';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -16,6 +17,7 @@ import { PayoutdetailsComponent } from './pages/payoutdetails/payoutdetails.comp
 import { BlankComponent } from './pages/blank/blank.component';
 import { TestComponent } from './pages/test/test.component';
 import { transactionsReducer } from './core/store/transactions/transactions.reducer';
+import { authReducer } from './core/store/auth/auth.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { TransactionsEffects } from './core/store/transactions/transactions.effects';
 
@@ -37,8 +39,15 @@ import { TransactionsEffects } from './core/store/transactions/transactions.effe
     FormsModule,
     ReactiveFormsModule,
     SharedModule,
-    StoreModule.forRoot({ counter: counterReducer, transactions: transactionsReducer  }),
+    StoreModule.forRoot({
+      counter: counterReducer,
+      transactions: transactionsReducer,
+      auth: authReducer,
+    }),
     EffectsModule.forRoot([TransactionsEffects]),
+    StoreDevtoolsModule.instrument({
+      maxAge: 10
+    })
     // StoreModule.forRoot(reducers, { metaReducers }),
     // StoreModule.forRoot(reducers, {
     //   metaReducers
