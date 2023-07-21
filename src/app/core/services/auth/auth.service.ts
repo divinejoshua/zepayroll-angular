@@ -16,11 +16,11 @@ export class AuthService {
   response: any;
 
 
-  // Get search results
-  sendLoginCredentials() : Observable<any[]> {
-
-    this.response = this.http.get("http://127.0.0.1:8000/accounts/auth/login")
-
+  //Send login request
+  sendLoginCredentials(bodyParams: object) : Observable<any[]> {
+    this.response = this.http.post("http://127.0.0.1:8000/accounts/auth/login/", bodyParams);
     return  this.response
   }
+
+
 }
