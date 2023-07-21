@@ -41,23 +41,20 @@ export class AuthInterceptor implements HttpInterceptor {
 
     // Resend the request
     return next.handle(request)
+    .pipe(
 
-    // .pipe(
+      // Check if the request status code
+      catchError((error: HttpErrorResponse) => {
+        if (error.status === 401) {
+          // Handle 401 Unauthorized error here
+          // For example, you might redirect to the login page or perform a logout action.
+          console.log('Unauthorized: Redirect to login page or perform logout.');
+        }
 
-    //   // Check if the request status code
-    //   catchError((error: HttpErrorResponse) => {
-    //     if (error.status === 401) {
-
-
-    //       // Handle 401 Unauthorized error here
-    //       // For example, you might redirect to the login page or perform a logout action.
-    //       console.log('Unauthorized: Redirect to login page or perform logout.');
-    //     }
-
-    //     // Pass the error to the calling code (components/services) so they can handle it further.
-    //     return throwError(error);
-    //   })
-    // );
+        // Pass the error to the calling code (components/services) so they can handle it further.
+        return throwError(error);
+      })
+    );
   }
 }
 

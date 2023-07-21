@@ -49,8 +49,9 @@ export class AuthService {
       }
       this.response = this.http.post("http://127.0.0.1:8000/accounts/auth/token/refresh/", bodyParams)
       .subscribe((response) => {
-        let userDetails = response
-        this.store.dispatch(saveUserDetails({ userDetails }))
+
+        // Get logged in user details function
+        this.getLogggedInUser()
       });
       return  this.response
     }
