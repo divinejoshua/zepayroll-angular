@@ -49,19 +49,23 @@ export class AuthInterceptor implements HttpInterceptor {
       // Check if the request status code
       catchError((error: HttpErrorResponse) => {
 
-        // If there is no access token, return the request
-        if (!this.accessToken) { return throwError("No authentication token")}
-
 
         let url = request.url;
 
-        // Check if the refresh token is valid
-        if (error.status === 401 && url === "http://127.0.0.1:8000/accounts/auth/token/refresh/") {
+        // Check if the token is expired or error is unauthorized
+        if (error.status === 401) {
           // Set the access token to an empty string in NGRX
           let access_token = ""
           this.store.dispatch(saveAccessToken({ access_token }));
 
         }
+
+        if (url === "http://127.0.0.1:8000/accounts/auth/token/refresh/"){
+
+        }
+
+        // If there is no access token, return the request
+        if (!this.accessToken) { return throwError("No authentication token")}
 
         // Pass the error to the calling code (components/services) so they can handle it further.
         return throwError(error);
