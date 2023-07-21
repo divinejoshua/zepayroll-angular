@@ -30,8 +30,9 @@ export class AppComponent {
     this.store.dispatch(getTransactionList());
   }
 
+  // Get logged in user details
   async getLoggedInUserDetails() {
-    await this.AuthService.getLogggedInUser()
+    this.AuthService.getLogggedInUser()
   }
 
 
