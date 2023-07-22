@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import {
   HttpRequest,
   HttpHandler,
@@ -27,7 +29,7 @@ export class AuthInterceptor implements HttpInterceptor {
   baseUrl: string =  environment.apiUrl
 
 
-  constructor(public store: Store<AppState>, private AuthService:AuthService){
+  constructor(public store: Store<AppState>, private AuthService:AuthService, private http:HttpClient,){
 
     // Get the access token from store
     this.store.select(selectAllAccessToken).subscribe((access_token: string) => {
@@ -80,40 +82,31 @@ export class AuthInterceptor implements HttpInterceptor {
 
        } else {
 
-         //If there is an access token and its expired, Get a new access token and retry the main request
-         this.AuthService.getNewAccessToken()
-         .pipe(
-          catchError((error) => {
-            // Handle errors, if any
-            return []; // Return a default value or handle the error as required
+         //Call the refresh token api
+        const bodyParams = {
+          'refresh': localStorage.getItem('refresh_token')
+        }
+        return this.http.post(this.baseUrl+"accounts/auth/token/refresh/", bodyParams)
+        .pipe(
+          switchMap((response: any) => {
+
+            // Store the new access token
+            let access_token = response.access
+            this.store.dispatch(saveAccessToken({ access_token }));
+            this.accessToken = access_token
+
+            // Get logged in user details
+            this.AuthService.getLogggedInUser()
+
+            // Resend the previous request
+            return next.handle(request.clone({
+              setHeaders: {
+                Authorization: `Bearer ${access_token}`
+              }
+            }));
           })
-        ).subscribe(
-          (data) => {
-            // Do something with the data
-            console.log('Received data:', data);
-          },
-          (error) => {
-            // Handle errors, if any
-            console.log('Error occurred:', error);
-          }
         );
 
-
-        //  .pipe(
-      //     switchMap(() => {
-      //         console.log("Got here")
-
-      //         return next.handle(request);
-      //     })
-      // );
-
-        //  setTimeout(() => {
-        //     console.log("oldRequest")
-        // }, 1000);
-
-
-
-         return throwError("Access token")
        }
 
    }

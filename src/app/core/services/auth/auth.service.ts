@@ -54,6 +54,7 @@ export class AuthService {
       const bodyParams = {
         'refresh': localStorage.getItem('refresh_token')
       }
+
       this.response = this.http.post(this.baseUrl+"accounts/auth/token/refresh/", bodyParams)
       .subscribe(
         (response: any) => {
