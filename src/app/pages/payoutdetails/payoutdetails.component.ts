@@ -22,6 +22,7 @@ export class PayoutdetailsComponent {
   payoutDetailList$ : Observable<any>
   isLoading : boolean
   isError : boolean
+  message : any
   // DataService: any;
 
   constructor(private DataService : DataService, router: ActivatedRoute, private store: Store<AppState>, private AuthService:AuthService,) {
@@ -29,6 +30,7 @@ export class PayoutdetailsComponent {
     this.payoutDetailList$ = store.select(selectAllTransactions);
     this.isLoading = false
     this.isError = false
+    this.message = ""
 
     // Get the router parameter
     router.params.subscribe((params) => {
@@ -36,13 +38,16 @@ export class PayoutdetailsComponent {
     });
 
     // Get logged in user details
-    this.getLoggedInUserDetails()
   }
 
 
   // Get logged in user details
-  async getLoggedInUserDetails() {
-    this.AuthService.getLogggedInUser()
+  async getCheckApi() {
+    this.message = ""
+    this.DataService.checkApi().subscribe(
+      data =>{ this.message =  "Added successfully"; },
+      error =>{  }
+      );
   }
 
 
@@ -51,6 +56,7 @@ export class PayoutdetailsComponent {
 
   ngOnInit() {
     //
+    this.getCheckApi()
   }
 
 
