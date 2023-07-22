@@ -39,13 +39,19 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
+    // Set with credentials for all requests
+    request = request.clone({
+      withCredentials: true
+    })
+
     // Clone the request and set the header
     if (this.accessToken){
       request = request.clone({
         headers: request.headers.set('Authorization', 'Bearer ' + this.accessToken)
       })
-
     }
+
+
 
     // Resend the request
     return next.handle(request).pipe(
@@ -66,7 +72,6 @@ export class AuthInterceptor implements HttpInterceptor {
 
     let url = request.url;
 
-    let oldRequest = request
 
       // If the error is coming from the refresh token api
       if (url === this.baseUrl+"accounts/auth/token/refresh/"){
@@ -84,7 +89,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
          //Call the refresh token api
         const bodyParams = {
-          'refresh': localStorage.getItem('refresh_token')
+          'refresh': ""
         }
         return this.http.post(this.baseUrl+"accounts/auth/token/refresh/", bodyParams)
         .pipe(
