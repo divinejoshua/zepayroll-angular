@@ -21,8 +21,9 @@ export class AppComponent {
   }
 
   onAppLoad (){
+
      // Terminate the loader
-     setTimeout(() => this.initialLoading = false, 2000);
+     setTimeout(() => this.initialLoading = false, 1000);
   }
 
   onGetTransactions() {

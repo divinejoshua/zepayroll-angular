@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs'
 import { environment } from 'src/environments/environment.development';
-import { saveUserDetails } from '../../store/auth/auth.actions';
+import { saveAccessToken, saveUserDetails } from '../../store/auth/auth.actions';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.state';
 
@@ -15,26 +15,34 @@ export class AuthService {
   constructor(private http:HttpClient, private store: Store<AppState>) { }
 
   // Base Url from environment variable
+  baseUrl: string =  environment.apiUrl
 
   response: any;
 
 
   //Send login request
   sendLoginCredentials(bodyParams: object) : Observable<object> {
-    this.response = this.http.post("http://127.0.0.1:8000/accounts/auth/login/", bodyParams);
+    this.response = this.http.post(this.baseUrl+"accounts/auth/login/", bodyParams);
     return  this.response
   }
 
   // Get the logged in user details
   getLogggedInUser() : Observable<object> {
 
-    this.response = this.http.get("http://127.0.0.1:8000/accounts/user/" )
+    this.response = this.http.get(this.baseUrl+"accounts/user/" )
 
     //Save the user details to state
-    .subscribe((response) => {
-      let userDetails = response
-      this.store.dispatch(saveUserDetails({ userDetails }))
-    });
+    .subscribe(
+      (response) => {
+        let userDetails = response
+        this.store.dispatch(saveUserDetails({ userDetails }))
+      },
+      // Any errors
+      (error:any) => {
+        // console.log('HTTP Error')
+      },
+      );
+
 
     return  this.response
   }
@@ -47,15 +55,21 @@ export class AuthService {
       const bodyParams = {
         'refresh': localStorage.getItem('refresh_token')
       }
-      this.response = this.http.post("http://127.0.0.1:8000/accounts/auth/token/refresh/", bodyParams)
-      .subscribe((response: any) => {
+      this.response = this.http.post(this.baseUrl+"accounts/auth/token/refresh/", bodyParams)
+      .subscribe(
+        (response: any) => {
 
-        // Get logged in user details function
-        if(response.status === 200){
+        // Get the access token and store it in the NGRX
+        let access_token = response.access
+        this.store.dispatch(saveAccessToken({ access_token }));
           this.getLogggedInUser()
+      },
 
-        }
-      });
+      (error:any) => {
+        // console.log('')
+      },
+
+      );
       return  this.response
     }
 
