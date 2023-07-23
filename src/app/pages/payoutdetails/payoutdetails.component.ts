@@ -25,7 +25,7 @@ export class PayoutdetailsComponent {
   message : any
   // DataService: any;
 
-  constructor(private DataService : DataService, router: ActivatedRoute, private store: Store<AppState>, private AuthService:AuthService,) {
+  constructor(private DataService : DataService, router: ActivatedRoute, private store: Store<AppState>,) {
 
     this.payoutDetailList$ = store.select(selectAllTransactions);
     this.isLoading = false

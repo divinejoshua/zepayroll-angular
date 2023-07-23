@@ -11,7 +11,7 @@ export interface AuthUserState {
 // initial value of the state
 export const initialState : AuthUserState = {
   access_token: "",
-  userDetails: [],
+  userDetails: {},
 };
 
 

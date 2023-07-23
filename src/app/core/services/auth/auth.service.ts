@@ -73,4 +73,16 @@ export class AuthService {
       return  this.response
     }
 
+
+    logoutUser() {
+       // Set the refresh token as the body parameter
+      const bodyParams = {
+        // 'refresh': localStorage.getItem('refresh_token')
+      }
+
+      this.response = this.http.post(this.baseUrl+"accounts/auth/logout/", bodyParams)
+
+      return  this.response
+    }
+
 }
