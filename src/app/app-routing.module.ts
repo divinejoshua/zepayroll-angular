@@ -7,13 +7,14 @@ import { RegisterComponent } from './pages/accounts/register/register.component'
 import { PayoutdetailsComponent } from './pages/payoutdetails/payoutdetails.component';
 import { BlankComponent } from './pages/blank/blank.component';
 import { TestComponent } from './pages/test/test.component';
+import { AuthGuard } from './core/guards/auth.guard';
 
 
 const routes: Routes = [
   { path: '',   redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', title: 'Home - Zepayroll', component: HomeComponent },
   { path: 'payouts', title: 'Payout - Zepayroll', component: PayoutsComponent },
-  { path: 'payouts/:payoutId', title: 'Payout - Zepayroll', component: PayoutdetailsComponent },
+  { path: 'payouts/:payoutId', title: 'Payout - Zepayroll', component: PayoutdetailsComponent, canActivate:[AuthGuard]},
 
   { path: 'accounts/login', title: 'Login - Zepayroll', component: LoginComponent },
   { path: 'accounts/register', title: 'Register - Zepayroll', component: RegisterComponent },
