@@ -28,10 +28,10 @@ export class AuthGuard implements CanActivate {
         .subscribe((access_token) => {
           // Check for access token
           if (access_token) {
-
             // Grant access
             subscriber.next(true);
             return true;
+
           } else {
 
             // if no access Token ??
