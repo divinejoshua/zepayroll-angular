@@ -89,7 +89,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
          //Call the refresh token api
         const bodyParams = {
-          'refresh': ""
+        // 'refresh': localStorage.getItem('refresh_token')
         }
         return this.http.post(this.baseUrl+"accounts/auth/token/refresh/", bodyParams)
         .pipe(
