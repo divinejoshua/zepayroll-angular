@@ -12,7 +12,7 @@ import {
 import { Observable, throwError } from 'rxjs';
 import { catchError, delay, switchMap } from 'rxjs/operators';
 import { selectAllAccessToken } from '../store/auth/auth.selectors';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 import { Store } from '@ngrx/store';
 import { AppState } from '../store/app.state';
 import { saveAccessToken } from '../store/auth/auth.actions';
