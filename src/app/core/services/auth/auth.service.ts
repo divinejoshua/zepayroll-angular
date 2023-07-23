@@ -52,7 +52,7 @@ export class AuthService {
 
       // Set the refresh token as the body parameter
       const bodyParams = {
-        // 'refresh': localStorage.getItem('refresh_token')
+        'refresh': localStorage.getItem('refresh_token')
       }
 
       this.response = this.http.post(this.baseUrl+"accounts/auth/token/refresh/", bodyParams)
@@ -77,10 +77,13 @@ export class AuthService {
     logoutUser() {
        // Set the refresh token as the body parameter
       const bodyParams = {
-        // 'refresh': localStorage.getItem('refresh_token')
+        'refresh': localStorage.getItem('refresh_token')
       }
 
       this.response = this.http.post(this.baseUrl+"accounts/auth/logout/", bodyParams)
+
+      //Remove the refresh token from local storage
+      localStorage.setItem("refresh_token", "");
 
       return  this.response
     }
