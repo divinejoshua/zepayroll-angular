@@ -22,19 +22,29 @@ export class AuthGuard implements CanActivate {
   canActivate (
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      return this.store.select((state: AppState) => state.auth).pipe(
-        map((authState: any) => {
-          if (authState.access_token) {
-            console.log(authState.access_token)
-            // If the access token exists, allow the user to access the route
+      return new Observable((subscriber) => {
+
+
+        this.store.select(selectAllAccessToken)
+
+        .subscribe((access_token) => {
+          if (access_token) {
+            subscriber.next(true);
             return true;
           } else {
-            // If there is no access token, redirect the user to the login page (or any other route)
-            // this.router.navigate(['/accounts/login']); // Replace '/login' with the appropriate login route
+            setTimeout(() => {
+              subscriber.next(this.router.parseUrl('/accounts/login'));
+            }, 1000);
+              //
             return false;
+
           }
-        })
-      );
+
+        });
+
+      });
+
+
 
   }
 
