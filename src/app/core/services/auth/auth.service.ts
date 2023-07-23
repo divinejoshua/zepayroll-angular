@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs'
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 import { saveAccessToken, saveUserDetails } from '../../store/auth/auth.actions';
 import { Store } from '@ngrx/store';
 import { AppState } from '../../store/app.state';
@@ -22,7 +22,7 @@ export class AuthService {
 
   //Send login request
   sendLoginCredentials(bodyParams: object) : Observable<object> {
-    this.response = this.http.post(this.baseUrl+"accounts/auth/login/", bodyParams);
+    this.response = this.http.post(this.baseUrl+"/accounts/auth/login/", bodyParams);
     return  this.response
   }
 
