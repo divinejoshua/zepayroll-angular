@@ -23,7 +23,7 @@ export class AppComponent {
   onAppLoad (){
 
      // Terminate the loader
-     setTimeout(() => this.initialLoading = false, 3000);
+     setTimeout(() => this.initialLoading = false, 1000);
   }
 
   onGetTransactions() {

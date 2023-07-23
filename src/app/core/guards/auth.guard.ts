@@ -24,18 +24,22 @@ export class AuthGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       return new Observable((subscriber) => {
 
-
         this.store.select(selectAllAccessToken)
-
         .subscribe((access_token) => {
+          // Check for access token
           if (access_token) {
+
+            // Grant access
             subscriber.next(true);
             return true;
           } else {
+
+            // if no access Token ??
+            //   -  wait for few seconds incase the token is still been retrieved from API.
+            //   -  If after a few seconds, the token wasnt retrieved, then it will redirect to the the login page
             setTimeout(() => {
               subscriber.next(this.router.parseUrl('/accounts/login'));
-            }, 1000);
-              //
+            }, 2000);
             return false;
 
           }
