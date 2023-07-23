@@ -9,8 +9,30 @@
       <img class="" src="/assets/images/dropdown-icon.svg" width="20">
     </button>
 
-<!-- Access the value of email from inside the userDetails state variable -->
-    <span *ngIf="userDetails$ | async as userDetails" class="mr-5 font-bold mt-3">{{userDetails.email}}</span>
+    <!-- Access the value of email from inside the userDetails state variable -->
+
+
+    <!-- Check if there is no access token  -->
+    <ng-container *ngIf="access_token$ | async as access_token; else elseBlock">
+
+      <!-- Display user details  -->
+      <span *ngIf="userDetails$ | async as userDetails" class="mr-5 font-bold mt-3">{{userDetails.email}}</span>
+    </ng-container>
+
+    <!-- If there is no access token / User is not authenticated  -->
+    <ng-template #elseBlock>
+      <a routerLink="/accounts/login" class="">
+        <button #elseBlock type="button" class="mr-5 flex pt-3 pb-3 pl-5 pr-5 rounded-sm font-bold bg-default text-white">
+          Login here
+        </button>
+      </a>
+    </ng-template>
+
+
+
+
+
+    <span  class="mr-5 font-bold mt-3"></span>
     <img class="mr-5" src="/assets/images/profile-image.svg" width="40">
   </div>
 

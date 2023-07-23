@@ -2,7 +2,7 @@ import { Component, Input } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/core/store/app.state';
 import { Observable } from 'rxjs';
-import { selectAllUserDetails } from 'src/app/core/store/auth/auth.selectors';
+import { selectAllAccessToken, selectAllUserDetails } from 'src/app/core/store/auth/auth.selectors';
 
 
 @Component({
@@ -17,11 +17,13 @@ export class HeaderComponent {
 
 
   userDetails$: Observable<any>;
+  access_token$: Observable<string>;
 
 
   // Constructor
   constructor(public store: Store<AppState>){
     this.userDetails$ = store.select(selectAllUserDetails);
+    this.access_token$ = store.select(selectAllAccessToken);
   }
 
 
