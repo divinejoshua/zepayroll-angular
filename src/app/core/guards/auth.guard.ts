@@ -12,11 +12,9 @@ import { AppState } from '../store/app.state';
 export class AuthGuard implements CanActivate {
 
 
-
   // constructor
   constructor(public store: Store<AppState>, private router: Router){
   }
-
 
 
   canActivate (
