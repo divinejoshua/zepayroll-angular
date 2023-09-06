@@ -13,7 +13,7 @@ import { saveUserDetails } from './core/store/auth/auth.actions';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'zepayroll-angular';
+  title = 'zepayroll-angular ';
   initialLoading : boolean = true;
 
   constructor(private store: Store<AppState>, private AuthService:AuthService,){
